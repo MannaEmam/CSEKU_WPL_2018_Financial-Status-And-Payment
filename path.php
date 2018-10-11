@@ -10,6 +10,7 @@ define('MODULES', ROOTPATH.'/modules');
 define('RESOURCES', ROOTPATH.'/resources');
 define('TEMPLATE', ROOTPATH.'/template');
 define('UTILITY', ROOTPATH.'/util');
+define('REGISTRATION_PAYMENT', MODULES.'/registration_payment');
 
 
 ?>

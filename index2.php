@@ -49,6 +49,7 @@ include_once $template_link.'menu.php';
         <title>Home Page</title>
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
         <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="resources/css/rpms.css" type="text/css" />
         <script src="resources/js/jquery.min.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
         <script src="resources/js/myscript.js"></script>

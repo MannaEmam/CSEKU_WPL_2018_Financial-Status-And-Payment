@@ -164,7 +164,6 @@
 					<Permission>USER_R</Permission>
 				</Permissions>
 			</Menu>
-
 	<Menu>
 			<ParentMenu>User</ParentMenu>
 			<Title>Payments Related</Title>
@@ -199,7 +198,41 @@
 					<Permission>BALANCE_C</Permission>
 				</Permissions>
 		</Menu>
+<!-- Registration Payment -->
+		<Menu>
+			<ParentMenu>User</ParentMenu>
+			<Title>Registration Payment</Title>
+			<Permissions>
+				<Permission>USER_R</Permission>														
+			</Permissions>
+		</Menu>	
 
+			<Menu>
+				<ParentMenu>Registration Payment</ParentMenu>
+				<Title>Registration Fees</Title>
+				<Link>registration_fees.php</Link>
+				<Permissions>
+					<Permission>USER_R</Permission>
+				</Permissions>
+			</Menu>
+
+			<Menu>
+				<ParentMenu>Registration Payment</ParentMenu>
+				<Title>Forgot Password</Title>
+				<Link>forgot_password.php</Link>
+				<Permissions>
+					<Permission>USER_R</Permission>
+				</Permissions>
+			</Menu>
+
+			<Menu>
+				<ParentMenu>User Related</ParentMenu>
+				<Title>Search User</Title>
+				<Link>user_search.php</Link>
+				<Permissions>
+					<Permission>USER_R</Permission>
+				</Permissions>
+			</Menu>
 
 <!-- product -->
 	<Menu>

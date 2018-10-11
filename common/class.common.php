@@ -199,7 +199,7 @@ class PageUtil{
     public static $CHECKOUT='checkout.php';
 
 
-
+    public static $REGISTRATION_FEES='registration_fees.php';
     
    
 }
@@ -260,6 +260,9 @@ class RouteUtil{
         //the page not found will redirect to error page
          self::$s_Routes[PageUtil::$ERROR] = "/modules/dashboard/ui/view.error.php";
 
+
+         self::$s_Routes[PageUtil::$REGISTRATION_FEES] = "/modules/registration_payment/ui/view.registration_payment.inc";
+
       
     }
 
@@ -313,6 +316,8 @@ class MiddlewareUtil{
          
 
          self::$s_Routes[PageUtil::$DISCIPLINE]   =  PageUtil::$LOGIN ;
+
+         self::$s_Routes[PageUtil::$REGISTRATION_FEES]   =  PageUtil::$LOGIN ;
    
     }
 
