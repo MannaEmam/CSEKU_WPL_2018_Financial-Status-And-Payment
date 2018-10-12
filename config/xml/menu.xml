@@ -875,36 +875,63 @@
 					<Permission>FILE_D</Permission>	
 				</Permissions>
 			</Menu>
-
-<!-- Job -->
+<!-- Payment -->
 	<Menu>
 		<ParentMenu></ParentMenu>
-		<Title>Job</Title>
+		<Title>Payment</Title>
 		<Permissions>
-			<Permission>JOB_C</Permission>
-			<Permission>JOB_R</Permission>
-			<Permission>JOB_U</Permission>
-			<Permission>JOB_D</Permission>									
+			<Permission>PAYMENT_C</Permission>
+			<Permission>PAYMENT_R</Permission>
+			<Permission>PAYMENT_U</Permission>
+			<Permission>PAYMENT_D</Permission>									
 		</Permissions>			
 	</Menu>
 
 			<Menu>
-				<ParentMenu>Job</ParentMenu>
-				<Title>Manage Job</Title>
+				<ParentMenu>Payment</ParentMenu>
+				<Title>Payment Related</Title>
 				<Permissions>
-					<Permission>JOB_C</Permission>
-					<Permission>JOB_U</Permission>									
-					<Permission>JOB_D</Permission>	
-					<Permission>JOB_R</Permission>
+					<Permission>PAYMENT_C</Permission>
+					<Permission>PAYMENT_U</Permission>									
+					<Permission>PAYMENT_D</Permission>	
+					<Permission>PAYMENT_R</Permission>
 				</Permissions>
 			</Menu>
 
 				<Menu>
-					<ParentMenu>Manage Job</ParentMenu>
-					<Title>Search Job</Title>
-					<Link>search_job.php</Link>
+					<ParentMenu>Payment Related</ParentMenu>
+					<Title>Registration Fee</Title>
+					<Link>registration_fee.php</Link>
 					<Permissions>
-						<Permission>JOB_R</Permission>
+						<Permission>PAYMENT_C</Permission>
+						<Permission>PAYMENT_U</Permission>									
+						<Permission>PAYMENT_D</Permission>
+						<Permission>PAYMENT_R</Permission>
 					</Permissions>
 				</Menu>
+					
+					<Menu>
+					<ParentMenu>Payment Related</ParentMenu>
+					<Title>Hall Fee</Title>
+					<Link>hall_fee.php</Link>
+					<Permissions>
+						<Permission>PAYMENT_C</Permission>
+						<Permission>PAYMENT_U</Permission>									
+						<Permission>PAYMENT_D</Permission>
+						<Permission>PAYMENT_R</Permission>
+					</Permissions>
+				</Menu>
+
+					<Menu>
+					<ParentMenu>Payment Related</ParentMenu>
+					<Title>Others Fee</Title>
+					<Link>others_fee.php</Link>
+					<Permissions>
+						<Permission>PAYMENT_C</Permission>
+						<Permission>PAYMENT_U</Permission>									
+						<Permission>PAYMENT_D</Permission>
+						<Permission>PAYMENT_R</Permission>
+					</Permissions>
+				</Menu>
+
 </Menus>

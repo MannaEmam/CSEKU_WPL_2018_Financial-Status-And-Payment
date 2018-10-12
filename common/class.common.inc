@@ -256,6 +256,11 @@ class PermissionUtil{
     public static $VIDEO_COMMENT_U='VIDEO_COMMENT_U';
     public static $VIDEO_COMMENT_D='VIDEO_COMMENT_D';
 
+    public static $PAYMENT_C='VIDEO_C';
+    public static $PAYMENT_R='VIDEO_R';
+    public static $PAYMENT_U='VIDEO_U';
+    public static $PAYMENT_D='VIDEO_D';
+
 
 }
 
@@ -352,8 +357,10 @@ class PageUtil{
     public static $VIDEO_COMMENT='video_comment.php';
     public static $VIDEO_SEARCH='video_search.php';
 
-    //job
-    public static $JOB='search_job.php';    
+    //Payment
+    public static $PAYMENT_REGISTRATION='registration_fee.php';
+    //public static $PAYMENT_HALL='hall_fee.php';
+    //public static $PAYMENT_OTHER='others_fee.php';      
    
 }
 
@@ -493,8 +500,10 @@ class RouteUtil{
 
          self::$s_Routes[PageUtil::$YEAR]  =   "modules/registration/ui/view.year.inc";
 
-         //JOB
-         self::$s_Routes[PageUtil::$JOB]  =   "modules/job/ui/view.job.inc";
+         //Payment
+         self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION]  =   "modules/payment/ui/view.registration_fee.inc";
+        // self::$s_Routes[PageUtil::$PAYMENT_HALL]  =   "modules/payment/ui/view.hall_fee.inc";
+         //self::$s_Routes[PageUtil::$PAYMENT_OTHERS]  =   "modules/payment/ui/view.others_fees.inc";
 
       
     }

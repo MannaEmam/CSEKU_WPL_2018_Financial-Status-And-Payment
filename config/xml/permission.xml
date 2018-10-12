@@ -762,30 +762,28 @@
 		<category>VIDEO COMMENT</category>
 	</permission>
 
-	<!-- JOB Category -->
+		<!-- Payment Category -->
 	<permission>
-		<id>JOB_C</id>
-		<name>JOB_C</name>
-		<category>JOB</category>
+		<id>PAYMENT_C</id>
+		<name>PAYMENT_C</name>
+		<category>PAYMENT</category>
 	</permission>
 
 	<permission>
-		<id>JOB_R</id>
-		<name>JOB_R</name>
-		<category>JOB</category>
+		<id>PAYMENT_R</id>
+		<name>PAYMENT_R</name>
+		<category>PAYMENT</category>
 	</permission>
 
 	<permission>
-		<id>JOB_U</id>
-		<name>JOB_U</name>
-		<category>JOB</category>
+		<id>PAYMENT_U</id>
+		<name>PAYMENT_U</name>
+		<category>PAYMENT</category>
 	</permission>
 
 	<permission>
-		<id>JOB_D</id>
-		<name>JOB_D</name>
-		<category>JOB</category>
+		<id>PAYMENT_D</id>
+		<name>PAYMENT_D</name>
+		<category>PAYMENT</category>
 	</permission>
-
-
 </permissions>
