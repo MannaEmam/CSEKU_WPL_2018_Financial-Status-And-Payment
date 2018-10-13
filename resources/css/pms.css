@@ -12,13 +12,16 @@
     font-size: 15px;
 }
 
-.f1, input[type=number] {
-   
+.f1, input[type=number]{
 }
 input[type=number] {
     display: block;
     margin : 0 auto;
     width: 80px;
+}
+#btn_s{
+    display: block;
+    margin :  auto;
 }
 .t1, td, th {
     border: 1px solid black;
