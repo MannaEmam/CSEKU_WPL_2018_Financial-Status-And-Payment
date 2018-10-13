@@ -69,7 +69,8 @@ include_once $template_link.'menu.inc';
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Digital University</title>
         <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-        <link rel="stylesheet" href="resources/css/style.css" type="text/css" />        
+        <link rel="stylesheet" href="resources/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="resources/css/pms.css" type="text/css" />               
         <script src="resources/js/jquery.min.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
         <script src="resources/js/myscript.js"></script>
