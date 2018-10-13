@@ -6,7 +6,7 @@ include_once './common/class.common.inc';
 	<div class="panel-heading">Registration Fee </div>
 	<div class="panel-body">
 		<h1 class="hh1"> KHULNA UNIVERSITY </h1>
-		<h2 class="hh1" id="hh2"> Registration Fees Receipt </h2>
+		<h2 class="hh1" id="hh2"> Students Payment Receipt </h2>
 		<div class="aa">
 		Student Name:			<br>
 		Discipline:
@@ -14,23 +14,22 @@ include_once './common/class.common.inc';
 		Term:
 		Year:
 		</div>    
-</div>
-<FORM METHOD="POST" ACTION="http://jkorpela.fi/cgi-bin/echo.cgi">
-<TABLE class="t1">
+<form class="f1" method="POST" action="http://jkorpela.fi/cgi-bin/echo.cgi">
+<table width="437" class="t1">
 	  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
+    <th>Description</th>
+    <th >Taka</th>
   </tr>
-  <TR>
-    <TD>Your name</TD>
-    <TD>
-      <INPUT TYPE="TEXT" NAME="name" SIZE="20">
-    </TD>
+  <tr>
+    <td>Your name</td>
+    <td>
+      <input TYPE="number" NAME="name">
+    </td>
   </TR>
   <TR>
     <TD>Your E-mail address</TD>
-    <TD><INPUT TYPE="TEXT" NAME="email" SIZE="20"></TD>
+    <TD><INPUT TYPE="number" NAME="email"></TD>
   </TR>
-</TABLE>
+</table>
 <P><INPUT TYPE="SUBMIT" VALUE="Submit" NAME="B1"></P>
-</FORM>
+</form>

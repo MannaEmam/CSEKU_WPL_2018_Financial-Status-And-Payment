@@ -11,8 +11,21 @@
     text-align: center;
     font-size: 15px;
 }
-.t1{
-    border: 2px solid black;
+
+.f1, input[type=number] {
+   
+}
+input[type=number] {
+    display: block;
+    margin : 0 auto;
+    width: 80px;
+}
+.t1, td, th {
+    border: 1px solid black;
+    text-align: center;
     margin-left:auto; 
     margin-right:auto;
+}
+td{
+	text-align: left;
 }
