@@ -13,14 +13,14 @@ Class PaymentBAO{
 
 	}
 
-	//get all Questions
+	//get user by id
 	public function getUserById($User){
 
 		$Result = new Result();	
 		$Result = $this->_PaymentDAO->getUserById($User);
 		
 		if(!$Result->getIsSuccess())
-			$Result->setResultObject("Database failure in QuestionDAO.getAllQuestions()");		
+			$Result->setResultObject("Database failure in PaymentDAO.getUserById($User)");		
 
 		return $Result;
 	}

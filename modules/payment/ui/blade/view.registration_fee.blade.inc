@@ -5,9 +5,8 @@ $_PaymentBAO = new PaymentBAO();
 $_DB = DBUtil::getInstance();
 $globalUser = '';
 $globalUser = $_SESSION["globalUser"];
-// var_dump($globalUser->getID());
 $User = new User();	
 $User->setID($globalUser->getID());	
 $getROW = $_PaymentBAO->getUserById($User)->getResultObject();
-// var_dump($getROW);
+
 ?>

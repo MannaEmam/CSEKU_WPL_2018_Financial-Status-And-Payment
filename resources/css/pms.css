@@ -12,8 +12,10 @@
     font-size: 15px;
 }
 
-.f1, input[type=number]{
+.f1 input[type=number],{
+    text-align: center
 }
+
 input[type=number] {
     display: block;
     margin : 0 auto;
