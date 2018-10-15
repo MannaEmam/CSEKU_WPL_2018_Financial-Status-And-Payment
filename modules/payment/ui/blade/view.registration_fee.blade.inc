@@ -5,32 +5,57 @@ $_PaymentBAO = new PaymentBAO();
 $_DB = DBUtil::getInstance();
 $globalUser = '';
 $globalUser = $_SESSION["globalUser"];
-$User = new User();	
-$User->setID($globalUser->getID());	
+$User = new User();
+$User->setID($globalUser->getID());
 $getROW = $_PaymentBAO->getUserById($User)->getResultObject();
+//getting discipline shortcode
+$Discipline = $getROW->getDiscipline();
 //setting batch from university id
-$x = $getROW->getUniversityID();
-$x = $x/10000;
-$batch = intval($x);
+$UID = $getROW->getUniversityID();
+//setting name
+$name = $getROW->getFirstName();
+var_dump($name);
+//getting current date
+$date = date('Y/m/d');
 /* saving the registration Payment Receipt*/
-if(isset($_POST['save']))
+if(isset($_POST['pay']))
 {
-	 $Question = new Question();	
-	 $Question->setID(Util::getGUID());
-     $Question->setTitle($_DB->secureInput($_POST['title']));
-     $Question->setCourse($_DB->secureInput($_POST['course']));
-     $Question->setTerm($_DB->secureInput($_POST['term']));
-     $Question->setSession($_DB->secureInput($_POST['session']));
-     $Question->setTeacher($_DB->secureInput($_POST['teacher']));
-     $Question->setType($_DB->secureInput($_POST['type']));
-     $Question->setTag($_DB->secureInput($_POST['tag']));
-     $Question->setQuestionDate($_DB->secureInput($_POST['question_date']));
-     $Question->setLink($_DB->secureInput($_POST['link']));
-     $Question->setCreator($_POST['creator']);
-     
-     if ($Question->getCreator() == "") 	
-     	echo "<br>Please Enter Creator";
-     else 
-	 	$_QuestionBAO->createQuestion($Question);		 
+	 $RegistrationFee = new RegistrationFee();	
+	 $RegistrationFee->setID(Util::getGUID());
+     $RegistrationFee->setUniversityID($UID);
+     $RegistrationFee->setName($name);
+     $RegistrationFee->setDate($date);
+     $RegistrationFee->setDiscipline($Discipline);
+     $RegistrationFee->setTerm($_DB->secureInput($_POST['trm']));
+     $RegistrationFee->setAdmissionFee($_DB->secureInput($_POST['af']));
+     $RegistrationFee->setPayBook($_DB->secureInput($_POST['pb']));
+	 $RegistrationFee->setSecurity($_DB->secureInput($_POST['scg']));
+	 $RegistrationFee->setTransportation($_DB->secureInput($_POST['tp']));
+	 $RegistrationFee->setCourseRegistration($_DB->secureInput($_POST['cr']));
+	 $RegistrationFee->setVerification($_DB->secureInput($_POST['vf']));
+	 $RegistrationFee->setRetake($_DB->secureInput($_POST['rt']));
+	 $RegistrationFee->setReRetake($_DB->secureInput($_POST['rrt']));
+	 $RegistrationFee->setBncc($_DB->secureInput($_POST['bncc']));
+	 $RegistrationFee->setLibrary($_DB->secureInput($_POST['lb']));
+	 $RegistrationFee->setMedical($_DB->secureInput($_POST['med']));
+	 $RegistrationFee->setCultural($_DB->secureInput($_POST['cl']));
+	 $RegistrationFee->setReligiousFee($_DB->secureInput($_POST['rg']));
+	 $RegistrationFee->setExaminationFee($_DB->secureInput($_POST['ef']));
+	 $RegistrationFee->setSessionCharge($_DB->secureInput($_POST['sc']));
+	 $RegistrationFee->setGradesheet($_DB->secureInput($_POST['gs']));
+	 $RegistrationFee->setProvisionalCertificate($_DB->secureInput($_POST['pc']));
+	 $RegistrationFee->setMainCertificate($_DB->secureInput($_POST['mc']));
+	 $RegistrationFee->setTranscript($_DB->secureInput($_POST['tsc']));
+	 $RegistrationFee->setSecurityLibrary($_DB->secureInput($_POST['scl']));
+	 $RegistrationFee->setEquivalenceCertificate($_DB->secureInput($_POST['ec']));
+	 $RegistrationFee->setFineLibrary($_DB->secureInput($_POST['flib']));
+	 $RegistrationFee->setFineRegistration($_DB->secureInput($_POST['fcr']));
+	 $RegistrationFee->setMc_Mi($_DB->secureInput($_POST['mmc']));
+	 $RegistrationFee->setMphilPhd($_DB->secureInput($_POST['mfph']));
+	 $RegistrationFee->setStudentWelfare($_DB->secureInput($_POST['sw']));
+	 $RegistrationFee->setSports($_DB->secureInput($_POST['sp']));
+	 $RegistrationFee->setPublication($_DB->secureInput($_POST['pl']));
+	 $RegistrationFee->setOthers($_DB->secureInput($_POST['ot']));
+	 $_PaymentBAO->RegistrationPayment($RegistrationFee);
 }
 ?>

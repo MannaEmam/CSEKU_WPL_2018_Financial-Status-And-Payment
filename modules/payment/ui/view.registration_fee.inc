@@ -8,14 +8,14 @@ include_once 'blade/view.registration_fee.blade.inc';
 <h1 class="hh1"> KHULNA UNIVERSITY </h1>
 <h2 class="hh1" id="hh2"> Students Payment Receipt </h2>
 <div class="aa">
-Name:<?php echo $getROW->getFirstName(); ?>			<br>
-Student id:<?php echo $getROW->getUniversityID(); ?><br>
-Discipline:<?php echo $getROW->getDiscipline(); ?><br>
+Name: <?php echo $getROW->getFirstName(); ?>			<br>
+Student id: <?php echo $getROW->getUniversityID(); ?><br>
+Discipline: <?php echo $getROW->getDiscipline(); ?><br>
 </div>    
 <form class="f1" method="post">
 	<div class="aa">
-	   <label>  Account Number: </label>
-	   <input type="number" name="acn" value= "0" width="30">
+		 Term: 
+	<input type="text" name="trm" size="5">	<br> <br>
 	</div>
 <table width="437" class="t1">
 	  <tr>
@@ -32,7 +32,7 @@ Discipline:<?php echo $getROW->getDiscipline(); ?><br>
 	<tr>
 		<td>02. Pay/Pay book</td>
 		<td>
-			<input type="number" name="sb" value="0">
+			<input type="number" name="pb" value="0">
 		</td>
 	</tr>
 
@@ -225,5 +225,5 @@ Discipline:<?php echo $getROW->getDiscipline(); ?><br>
 	</tr>
 </table>
 <br>
-	<input id="btn_s" type="submit" value="Pay Fee" name="pay">
+					<button id="btn_s" type="submit" name="pay">pay Fee</button>
 </form>

@@ -24,4 +24,15 @@ Class PaymentBAO{
 
 		return $Result;
 	}
+	//paying registration fee
+	public function RegistrationPayment($RegistrationFee){
+				$Result = new Result();	
+		$Result = $this->_PaymentDAO->RegistrationPayment($RegistrationFee);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.RegistrationPayment()");		
+
+		return $Result;
+	}
+
 }
