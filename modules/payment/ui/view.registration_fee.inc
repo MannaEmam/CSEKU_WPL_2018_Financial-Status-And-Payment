@@ -2,12 +2,6 @@
 include_once './common/class.common.inc';
 include_once 'blade/view.registration_fee.blade.inc';
 ?>
-<?php
-$m = 160204;
-$m = $m/10000;
-$n = intval($m);
-echo $n;
-?>
 <div class="panel panel-default">
 <div class="panel-heading">Registration Fee </div>
 <div class="panel-body">
@@ -18,7 +12,11 @@ Name:<?php echo $getROW->getFirstName(); ?>			<br>
 Student id:<?php echo $getROW->getUniversityID(); ?><br>
 Discipline:<?php echo $getROW->getDiscipline(); ?><br>
 </div>    
-<form class="f1" method="post" action="http://jkorpela.fi/cgi-bin/echo.cgi">
+<form class="f1" method="post">
+	<div class="aa">
+	   <label>  Account Number: </label>
+	   <input type="number" name="acn" value= "0" width="30">
+	</div>
 <table width="437" class="t1">
 	  <tr>
     <th>Description</th>
@@ -227,5 +225,5 @@ Discipline:<?php echo $getROW->getDiscipline(); ?><br>
 	</tr>
 </table>
 <br>
-	<input id="btn_s" type="submit" value="Pay Fee" name="b1">
+	<input id="btn_s" type="submit" value="Pay Fee" name="pay">
 </form>
