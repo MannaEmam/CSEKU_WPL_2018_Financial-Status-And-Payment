@@ -115,6 +115,7 @@ class RegistrationFee {
     }
     public function getRetake(){
         return $this->_Retake;
+        var_dump($this->Retake);
     }
     public function setReRetake($ReRetake){
         $this->_ReRetake = $ReRetake;
