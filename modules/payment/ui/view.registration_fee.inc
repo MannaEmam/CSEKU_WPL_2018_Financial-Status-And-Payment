@@ -225,5 +225,5 @@ Discipline: <?php echo $getROW->getDiscipline(); ?><br>
 	</tr>
 </table>
 <br>
-					<button id="btn_s" type="submit" name="pay">pay Fee</button>
+	<input id="btn_s" type="submit" value="Pay Fee" name="pay">
 </form>

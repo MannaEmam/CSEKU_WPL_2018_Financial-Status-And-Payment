@@ -24,6 +24,7 @@ input[type=number] {
 #btn_s{
     display: block;
     margin :  auto;
+    
 }
 .t1, td, th {
     border: 1px solid black;

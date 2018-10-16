@@ -1,6 +1,6 @@
 <?php
 include_once UTILITY.'class.util.inc';
-include_once MODULES_PAYMENT.'bao/class.registration_feebao.inc';
+include_once MODULES_PAYMENT.'bao/class.paymentbao.inc';
 $_PaymentBAO = new PaymentBAO();
 $_DB = DBUtil::getInstance();
 $globalUser = '';
@@ -14,7 +14,8 @@ $Discipline = $getROW->getDiscipline();
 $UID = $getROW->getUniversityID();
 //setting name
 $name = $getROW->getFirstName();
-var_dump($name);
+$email = $getROW->getEmail();
+var_dump($email);
 //getting current date
 $date = date('Y/m/d');
 /* saving the registration Payment Receipt*/
@@ -24,6 +25,7 @@ if(isset($_POST['pay']))
 	 $RegistrationFee->setID(Util::getGUID());
      $RegistrationFee->setUniversityID($UID);
      $RegistrationFee->setName($name);
+     $RegistrationFee->setEmail($email);
      $RegistrationFee->setDate($date);
      $RegistrationFee->setDiscipline($Discipline);
      $RegistrationFee->setTerm($_DB->secureInput($_POST['trm']));

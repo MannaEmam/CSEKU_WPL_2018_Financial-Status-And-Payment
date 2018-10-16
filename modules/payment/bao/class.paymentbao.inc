@@ -1,7 +1,7 @@
 <?php
 
 include_once UTILITY.'class.util.inc';
-include_once MODULES_PAYMENT.'dao/class.registration_feedao.inc';
+include_once MODULES_PAYMENT.'dao/class.paymentdao.inc';
 Class PaymentBAO{
 
 	private $_DB;
@@ -31,6 +31,16 @@ Class PaymentBAO{
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in PaymentDAO.RegistrationPayment()");		
+
+		return $Result;
+	}
+	//RechargeAmount
+	public function setRechargeAmount($Recharge){
+				$Result = new Result();	
+		$Result = $this->_PaymentDAO->setRechargeAmount($Recharge);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.RechargeAmount()");		
 
 		return $Result;
 	}

@@ -5,6 +5,7 @@ class RegistrationFee {
     private $_ID;
     private $_UniversityID;
     private $_Name;
+    private $_Email;
     private $_Term;
     private $_Discipline;
     private $_Date;
@@ -55,6 +56,12 @@ class RegistrationFee {
     }
     public function getName(){
         return $this->_Name;
+    }
+    public function setEmail($Email){
+        $this->_Email = $Email;
+    }
+    public function getEmail(){
+        return $this->_Email;
     }
     public function setTerm($Term){
         $this->_Term = $Term;
@@ -251,5 +258,37 @@ class RegistrationFee {
     }
 
 }
+ 
 
+ class Recharge{
+    private $_ID;
+    private $_Date;
+    private $_Email;
+    private $_Amount;
+
+    public function setID($ID){
+        $this->_ID = $ID;
+    }
+    public function getID(){
+        return $this->_ID;
+    }
+    public function setDate($Date){
+        $this->_Date = $Date;
+    }
+    public function getDate(){
+        return $this->_Date;
+    }
+    public function setEmail($Email){
+        $this->_Email = $Email;
+    }
+    public function getEmail(){
+        return $this->_Email;
+    }
+    public function setAmount($Amount){
+        $this->_Amount = $Amount;
+    }
+    public function getAmount(){
+        return $this->_Amount;
+    }
+ }
 ?>

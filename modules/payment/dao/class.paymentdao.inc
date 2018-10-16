@@ -9,17 +9,19 @@ Class PaymentDAO{
 	private $_DB;
 	private $_User;
 	private $_RegistrationFee;
+	private $_Recharge;
 
 	public function __construct(){
 
 		$this->_DB = DBUtil::getInstance();
 		$this->_User = new User();
 		$this->_RegistrationFee = new RegistrationFee();
+		$this->_Recharge = new Recharge();
 	}
 	public function getUserById($User){
 		$ID = $User->getID();
 
-		$SQL = "SELECT UniversityID,FirstName,MiddleName,LastName,DisciplineID FROM ums_user WHERE ID = '$ID'";
+		$SQL = "SELECT UniversityID,FirstName,MiddleName,LastName,DisciplineID,Email FROM ums_user WHERE ID = '$ID'";
 		
 		$this->_DB->doQuery($SQL);
 
@@ -28,15 +30,16 @@ Class PaymentDAO{
 		$this->_User = new User();
 
 	    $this->_User->setUniversityID ( $row['UniversityID']);
+	    $this->_User->setEmail ( $row['Email']);
 
 	    $this->_User->setFirstName( $row['FirstName']." ".$row['MiddleName']." ".$row['LastName'] );
 	    
 	    $DisciplineID = $row['DisciplineID'];
-	    $SQL1 = "SELECT ShortCode FROM ums_discipline WHERE ID = '$DisciplineID'";
+	    $SQL1 = "SELECT Name FROM ums_discipline WHERE ID = '$DisciplineID'";
 
 		$this->_DB->doQuery($SQL1);
 		$row1 = $this->_DB->getTopRow();
-	    $this->_User->setDiscipline ( $row1['ShortCode']);
+	    $this->_User->setDiscipline ( $row1['Name']);
 		$Result = new Result();
 		$Result->setIsSuccess(1);
 		$Result->setResultObject($this->_User);
@@ -47,9 +50,9 @@ Class PaymentDAO{
 	public function RegistrationPayment($RegistrationFee){
 		
 		$ID =$RegistrationFee->getID();
-		var_dump($ID);
 		$UniversityID=$RegistrationFee->getUniversityID();
 		$Name=$RegistrationFee->getName();
+		$Email=$RegistrationFee->getEmail();
 		$Term =$RegistrationFee->getTerm();
 		$Discipline =$RegistrationFee->getDiscipline();
 		$Date =$RegistrationFee->getDate();
@@ -82,7 +85,27 @@ Class PaymentDAO{
 		$Sports =$RegistrationFee->getSports();
 		$Publication =$RegistrationFee->getPublication();
 		$Others =$RegistrationFee->getOthers();
-		$SQL = "INSERT INTO pms_reg_fee VALUES('$ID','$UniversityID','$Name','$Term','$Discipline','$Date','$AdmissionFee','$PayBook','$Security','$Transportation','$CourseRegistration','$Verification','$Retake','$ReRetake','$Bncc','$Library','$Medical','$Cultural','$ReligiousFee','$ExaminationFee','$SessionCharge','$Gradesheet','$ProvisionalCertificate','$MainCertificate','$Transcript','$SecurityLibrary','$EquivalenceCertificate','$FineLibrary','$FineRegistration','$Mc_Mi','$MphilPhd','$StudentWelfare','$Sports','$Publication','$Others')";
+		$SQL = "INSERT INTO pms_reg_fee VALUES('$ID','$UniversityID','$Name','$Email','$Term','$Discipline','$Date','$AdmissionFee','$PayBook','$Security','$Transportation','$CourseRegistration','$Verification','$Retake','$ReRetake','$Bncc','$Library','$Medical','$Cultural','$ReligiousFee','$ExaminationFee','$SessionCharge','$Gradesheet','$ProvisionalCertificate','$MainCertificate','$Transcript','$SecurityLibrary','$EquivalenceCertificate','$FineLibrary','$FineRegistration','$Mc_Mi','$MphilPhd','$StudentWelfare','$Sports','$Publication','$Others')";
+
+
+		$SQL = $this->_DB->doQuery($SQL);		
+		
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($SQL);
+
+		return $Result;		
+	}
+
+	//Recharge Amount
+		public function setRechargeAmount($Recharge){
+		
+		$ID =$Recharge->getID();
+		$Date =$Recharge->getDate();
+		$Email=$Recharge->getEmail();
+		$Amount=$Recharge->getAmount();
+
+		$SQL = "INSERT INTO pms_recharge VALUES('$ID','$Date','$Email','$Amount')";
 
 
 		$SQL = $this->_DB->doQuery($SQL);		
