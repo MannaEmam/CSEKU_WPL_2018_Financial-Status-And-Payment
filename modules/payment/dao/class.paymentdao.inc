@@ -98,7 +98,7 @@ Class PaymentDAO{
 	}
 
 	//Recharge Amount
-		public function setRechargeAmount($Recharge){
+	public function setRechargeAmount($Recharge){
 		
 		$ID =$Recharge->getID();
 		$Date =$Recharge->getDate();
@@ -108,13 +108,45 @@ Class PaymentDAO{
 		$SQL = "INSERT INTO pms_recharge VALUES('$ID','$Date','$Email','$Amount')";
 
 
-		$SQL = $this->_DB->doQuery($SQL);		
+		$SQL = $this->_DB->doQuery($SQL);
+		//inserting data for recharge log
+		$SQL1 = "INSERT INTO  pms_recharge_log (`Date`, Email, Amount) VALUES('$Date','$Email','$Amount')";
+
+
+		$SQL1 = $this->_DB->doQuery($SQL1);		
 		
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);
-		$Result->setResultObject($SQL);
+		$Result->setResultObject($SQL1);
 
 		return $Result;		
+	}
+	//get recharge log
+	public function getRechargeLog(){
+
+		$LogList = array();
+
+		$this->_DB->doQuery("SELECT * FROM pms_recharge_log ORDER BY `Date` DESC");
+
+		$rows = $this->_DB->getAllRows();
+
+		for($i = 0; $i < sizeof($rows); $i++) {
+			$row = $rows[$i];
+			$this->_Recharge = new Recharge();
+
+		    $this->_Recharge->setID ( $row['ID']);
+			$this->_Recharge->setDate ( $row['Date']);
+		    $this->_Recharge->setEmail ( $row['Email']);
+			$this->_Recharge->setAmount ( $row['Amount']);
+		    $LogList[]=$this->_Recharge;
+   
+		}
+
+		$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($LogList);
+
+		return $Result;
 	}
 }
 ?>

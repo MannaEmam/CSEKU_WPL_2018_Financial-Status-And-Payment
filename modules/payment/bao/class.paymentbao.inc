@@ -44,5 +44,15 @@ Class PaymentBAO{
 
 		return $Result;
 	}
+	//get Recharge Loog
+	public function getRechargeLog(){
 
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getRechargeLog();
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getRechargeLog()");		
+
+		return $Result;
+	}
 }

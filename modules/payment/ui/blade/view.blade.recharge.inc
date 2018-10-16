@@ -17,6 +17,8 @@ $UID = $getROW->getUniversityID();
 $name = $getROW->getFirstName();
 var_dump($name);*/
 //getting current date
+$getRow =$_PaymentBAO->getRechargeLog()->getResultObject();
+date_default_timezone_set("Asia/Dhaka");
 $date = date('Y/m/d');
 /* saving the registration Payment Receipt*/
 if(isset($_POST['recharge']))
@@ -25,6 +27,8 @@ if(isset($_POST['recharge']))
 	 $Recharge->setID(Util::getGUID());
 	 $Recharge->setDate($date);
      $Recharge->setEmail($_DB->secureInput($_POST['email']));
+     $Recharge->setAmount($_DB->secureInput($_POST['amount']));
 	 $_PaymentBAO->setRechargeAmount($Recharge);
+	 header("Location: recharge.php");
 }
 ?>

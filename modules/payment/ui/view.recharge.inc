@@ -18,5 +18,22 @@ include_once 'blade/view.blade.recharge.inc';
 		 Amount: 
 	<input type="text" name="amount" size="20">	<br> <br>
 	</div>
-	<input id="btn_s" type="submit" value="Recharge" name="recharge">
+	<input id="btn_s" type="submit" value="Recharge" name="recharge"><br>
+	
 </form>
+<table class="table">
+  <tr>
+    <th>Date</th>
+    <th>Account</th>
+    <th>Ammount</th>
+  </tr>
+  <?php
+  foreach ($getRow as $result) {
+  ?>
+  <tr>
+    <td><?php echo $result->getDate();?></td>
+    <td><?php echo $result->getEmail();?></td>
+    <td><?php echo $result->getAmount();?></td>
+  </tr>
+<?php } ?>
+</table>

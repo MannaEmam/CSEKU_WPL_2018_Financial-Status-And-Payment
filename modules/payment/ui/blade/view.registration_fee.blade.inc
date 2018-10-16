@@ -15,8 +15,8 @@ $UID = $getROW->getUniversityID();
 //setting name
 $name = $getROW->getFirstName();
 $email = $getROW->getEmail();
-var_dump($email);
 //getting current date
+date_default_timezone_set("Asia/Dhaka");
 $date = date('Y/m/d');
 /* saving the registration Payment Receipt*/
 if(isset($_POST['pay']))
