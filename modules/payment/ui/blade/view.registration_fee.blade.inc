@@ -8,13 +8,17 @@ $globalUser = $_SESSION["globalUser"];
 $User = new User();
 $User->setID($globalUser->getID());
 $getROW = $_PaymentBAO->getUserById($User)->getResultObject();
+//getting email
+$email = $getROW->getEmail();
+$getAccount = $_PaymentBAO->getAccountDetails($getROW)->getResultObject();
+$balance = $getAccount->getAmount();
+var_dump($balance);
 //getting discipline shortcode
 $Discipline = $getROW->getDiscipline();
 //setting batch from university id
 $UID = $getROW->getUniversityID();
 //setting name
 $name = $getROW->getFirstName();
-$email = $getROW->getEmail();
 //getting current date
 date_default_timezone_set("Asia/Dhaka");
 $date = date('Y/m/d');

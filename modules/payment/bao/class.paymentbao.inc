@@ -55,4 +55,15 @@ Class PaymentBAO{
 
 		return $Result;
 	}
+	//get account details
+	public function getAccountDetails($Account){
+
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getAccountDetails($Account);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getAccountDetails()");		
+
+		return $Result;
+	}
 }

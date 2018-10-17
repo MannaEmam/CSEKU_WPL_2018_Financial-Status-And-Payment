@@ -163,5 +163,28 @@ Class PaymentDAO{
 
 		return $Result;
 	}
+
+	//get account details by email
+		public function getAccountDetails($Account){
+		$Email = $Account->getEmail();
+		var_dump($Email);
+		$SQL = "SELECT * FROM pms_recharge WHERE Email='$Email'";
+		
+		$this->_DB->doQuery($SQL);
+
+		$row = $this->_DB->getTopRow();
+		$this->_Recharge = new Recharge();
+
+	    $this->_Recharge->setDate ( $row['Date']);
+	    $this->_Recharge->setEmail ( $row['Email']);
+	    $this->_Recharge->setAmount ( $row['Amount']);
+
+		$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($this->_Recharge);
+
+		return $Result;
+	}
+
 }
 ?>
