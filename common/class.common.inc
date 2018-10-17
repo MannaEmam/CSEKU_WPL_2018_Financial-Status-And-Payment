@@ -361,7 +361,8 @@ class PageUtil{
     public static $PAYMENT_REGISTRATION='registration_fee.php';
     //public static $PAYMENT_HALL='hall_fee.php';
     //public static $PAYMENT_OTHER='others_fee.php';    
-    public static $PAYMENT_RECHARGE='recharge.php';     
+    public static $PAYMENT_RECHARGE='recharge.php';
+    public static $PAYMENT_MESSAGE='message.php';     
 }
 
 class RouteUtil{
@@ -505,6 +506,7 @@ class RouteUtil{
         // self::$s_Routes[PageUtil::$PAYMENT_HALL]  =   "modules/payment/ui/view.hall_fee.inc";
          //self::$s_Routes[PageUtil::$PAYMENT_OTHERS]  =   "modules/payment/ui/view.others_fees.inc";
         self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]  =   "modules/payment/ui/view.recharge.inc";
+        self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]  =   "modules/payment/ui/view.message.inc";
       
     }
 
@@ -630,10 +632,11 @@ class MiddlewareUtil{
          self::$s_Routes[PageUtil::$VIDEO_COMMENT]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$VIDEO_SEARCH]   =  PageUtil::$LOGIN ;
 
-         //self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION]   =  PageUtil::$LOGIN ;
     //  self::$s_Routes[PageUtil::$PAYMENT_HALL]   =  PageUtil::$LOGIN ;
     //  self::$s_Routes[PageUtil::$PAYMENT_OTHETRS]   =  PageUtil::$LOGIN ; 
-         //self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]   =  PageUtil::$LOGIN ;     
+        // self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]   =  PageUtil::$LOGIN ;
+         //self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]   =  PageUtil::$LOGIN ;        
          
    
     }

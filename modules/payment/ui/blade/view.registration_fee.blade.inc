@@ -25,6 +25,11 @@ $date = date('Y/m/d');
 /* saving the registration Payment Receipt*/
 if(isset($_POST['pay']))
 {
+	 $total = ($_POST['af'] + $_POST['pb'] + $_POST['scg'] + $_POST['tp'] + $_POST['cr'] + $_POST['vf'] + $_POST['rt'] + $_POST['rrt'] + $_POST['bncc'] + $_POST['lb'] + $_POST['med'] + $_POST['cl'] + $_POST['rg'] + $_POST['ef'] + $_POST['sc'] + $_POST['gs'] + $_POST['pc'] + $_POST['mc'] + $_POST['tsc'] + $_POST['scl'] + $_POST['ec'] + $_POST['flib'] + $_POST['fcr'] + $_POST['mmc'] + $_POST['mfph'] + $_POST['sw'] + $_POST['sp'] + $_POST['pl'] + $_POST['ot'] );
+	 if($total > $balance)
+	 {
+	 	header("Location: message.php");	 	
+	 }
 	 $RegistrationFee = new RegistrationFee();	
 	 $RegistrationFee->setID(Util::getGUID());
      $RegistrationFee->setUniversityID($UID);
