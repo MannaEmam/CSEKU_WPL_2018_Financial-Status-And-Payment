@@ -105,10 +105,25 @@ Class PaymentDAO{
 		$Email=$Recharge->getEmail();
 		$Amount=$Recharge->getAmount();
 
+		//
+		$SQL2 = "SELECT Amount FROM pms_recharge WHERE Email='$Email'";
+		$SQL2 = $this->_DB->doQuery($SQL2);
+		$row = $this->_DB->getTopRow();
+		if(is_null($row['Amount']))
+		{
 		$SQL = "INSERT INTO pms_recharge VALUES('$ID','$Date','$Email','$Amount')";
 
 
 		$SQL = $this->_DB->doQuery($SQL);
+		}
+
+		else
+		{
+			$amount = $Amount + $row['Amount'];
+			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount'";
+			$SQL3 = $this->_DB->doQuery($SQL3);
+		}
+
 		//inserting data for recharge log
 		$SQL1 = "INSERT INTO  pms_recharge_log (`Date`, Email, Amount) VALUES('$Date','$Email','$Amount')";
 
@@ -126,7 +141,7 @@ Class PaymentDAO{
 
 		$LogList = array();
 
-		$this->_DB->doQuery("SELECT * FROM pms_recharge_log ORDER BY `Date` DESC");
+		$this->_DB->doQuery("SELECT * FROM pms_recharge_log ORDER BY ID DESC");
 
 		$rows = $this->_DB->getAllRows();
 
