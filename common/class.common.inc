@@ -635,8 +635,8 @@ class MiddlewareUtil{
          self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION]   =  PageUtil::$LOGIN ;
     //  self::$s_Routes[PageUtil::$PAYMENT_HALL]   =  PageUtil::$LOGIN ;
     //  self::$s_Routes[PageUtil::$PAYMENT_OTHETRS]   =  PageUtil::$LOGIN ; 
-        // self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]   =  PageUtil::$LOGIN ;
-         //self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]   =  PageUtil::$LOGIN ;        
+         self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]   =  PageUtil::$LOGIN ;        
          
    
     }

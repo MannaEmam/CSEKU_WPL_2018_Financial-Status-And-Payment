@@ -943,5 +943,17 @@
 						<Permission>PAYMENT_D</Permission>
 						<Permission>PAYMENT_R</Permission>
 					</Permissions>
+								
+				</Menu>
+					<Menu>
+					<ParentMenu>Payment Related</ParentMenu>
+					<Title></Title>
+					<Link>message.php</Link>
+					<Permissions>
+						<Permission>PAYMENT_C</Permission>
+						<Permission>PAYMENT_U</Permission>									
+						<Permission>PAYMENT_D</Permission>
+						<Permission>PAYMENT_R</Permission>
+					</Permissions>
 				</Menu>
 </Menus>

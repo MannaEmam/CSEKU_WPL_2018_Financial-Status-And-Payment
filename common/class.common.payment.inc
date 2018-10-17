@@ -4,6 +4,7 @@ class RegistrationFee {
 
     private $_ID;
     private $_UniversityID;
+    private $_Batch;
     private $_Name;
     private $_Email;
     private $_Term;
@@ -38,6 +39,7 @@ class RegistrationFee {
     private $_Sports;
     private $_Publication;
     private $_Others;
+    private $_Total;
 
     public function setID($ID){
         $this->_ID = $ID;
@@ -50,6 +52,12 @@ class RegistrationFee {
     }
     public function getUniversityID(){
         return $this->_UniversityID;
+    }
+    public function setBatch($Batch){
+        $this->_Batch = $Batch;
+    }
+    public function getBatch(){
+        return $this->_Batch;
     }
     public function setName($Name){
         $this->_Name = $Name;
@@ -255,6 +263,12 @@ class RegistrationFee {
     }
     public function getOthers(){
         return $this->_Others;
+    }
+    public function setTotal($Total){
+        $this->_Total = $Total;
+    }
+    public function getTotal(){
+        return $this->_Total;
     }
 
 }

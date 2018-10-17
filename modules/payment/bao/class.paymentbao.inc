@@ -25,9 +25,9 @@ Class PaymentBAO{
 		return $Result;
 	}
 	//paying registration fee
-	public function RegistrationPayment($RegistrationFee){
+	public function setRegistrationPayment($RegistrationFee){
 				$Result = new Result();	
-		$Result = $this->_PaymentDAO->RegistrationPayment($RegistrationFee);
+		$Result = $this->_PaymentDAO->setRegistrationPayment($RegistrationFee);
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in PaymentDAO.RegistrationPayment()");		
@@ -63,6 +63,17 @@ Class PaymentBAO{
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in PaymentDAO.getAccountDetails()");		
+
+		return $Result;
+	}
+
+	public function getRegistrationFee(xx){
+
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getRegistrationFee(xx);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getRegistrationFee()");		
 
 		return $Result;
 	}

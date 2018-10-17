@@ -12,11 +12,12 @@ $getROW = $_PaymentBAO->getUserById($User)->getResultObject();
 $email = $getROW->getEmail();
 $getAccount = $_PaymentBAO->getAccountDetails($getROW)->getResultObject();
 $balance = $getAccount->getAmount();
-var_dump($balance);
 //getting discipline shortcode
 $Discipline = $getROW->getDiscipline();
 //setting batch from university id
 $UID = $getROW->getUniversityID();
+//setting batch 
+$Batch =  intval($UID /10000);
 //setting name
 $name = $getROW->getFirstName();
 //getting current date
@@ -25,14 +26,20 @@ $date = date('Y/m/d');
 /* saving the registration Payment Receipt*/
 if(isset($_POST['pay']))
 {
-	 $total = ($_POST['af'] + $_POST['pb'] + $_POST['scg'] + $_POST['tp'] + $_POST['cr'] + $_POST['vf'] + $_POST['rt'] + $_POST['rrt'] + $_POST['bncc'] + $_POST['lb'] + $_POST['med'] + $_POST['cl'] + $_POST['rg'] + $_POST['ef'] + $_POST['sc'] + $_POST['gs'] + $_POST['pc'] + $_POST['mc'] + $_POST['tsc'] + $_POST['scl'] + $_POST['ec'] + $_POST['flib'] + $_POST['fcr'] + $_POST['mmc'] + $_POST['mfph'] + $_POST['sw'] + $_POST['sp'] + $_POST['pl'] + $_POST['ot'] );
-	 if($total > $balance)
+	 $Total = ($_POST['af'] + $_POST['pb'] + $_POST['scg'] + $_POST['tp'] + $_POST['cr'] + $_POST['vf'] + $_POST['rt'] + $_POST['rrt'] + $_POST['bncc'] + $_POST['lb'] + $_POST['med'] + $_POST['cl'] + $_POST['rg'] + $_POST['ef'] + $_POST['sc'] + $_POST['gs'] + $_POST['pc'] + $_POST['mc'] + $_POST['tsc'] + $_POST['scl'] + $_POST['ec'] + $_POST['flib'] + $_POST['fcr'] + $_POST['mmc'] + $_POST['mfph'] + $_POST['sw'] + $_POST['sp'] + $_POST['pl'] + $_POST['ot'] );
+	 
+
+	 if($Total > $balance)
 	 {
 	 	header("Location: message.php");	 	
 	 }
-	 $RegistrationFee = new RegistrationFee();	
+	 else
+	 {
+
+	 $RegistrationFee = new RegistrationFee();
 	 $RegistrationFee->setID(Util::getGUID());
      $RegistrationFee->setUniversityID($UID);
+     $RegistrationFee->setBatch($Batch);
      $RegistrationFee->setName($name);
      $RegistrationFee->setEmail($email);
      $RegistrationFee->setDate($date);
@@ -67,6 +74,9 @@ if(isset($_POST['pay']))
 	 $RegistrationFee->setSports($_DB->secureInput($_POST['sp']));
 	 $RegistrationFee->setPublication($_DB->secureInput($_POST['pl']));
 	 $RegistrationFee->setOthers($_DB->secureInput($_POST['ot']));
-	 $_PaymentBAO->RegistrationPayment($RegistrationFee);
+	 $RegistrationFee->setTotal($Total);
+	 $_PaymentBAO->setRegistrationPayment($RegistrationFee);
+	 $_PaymentBAO->setRegistrationPayment($RegistrationFee);
+	 }
 }
 ?>
