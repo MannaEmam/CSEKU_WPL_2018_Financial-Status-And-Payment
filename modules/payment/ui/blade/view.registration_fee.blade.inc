@@ -37,7 +37,8 @@ if(isset($_POST['pay']))
 	 {
 
 	 $RegistrationFee = new RegistrationFee();
-	 $RegistrationFee->setID(Util::getGUID());
+	 $RID = Util::getGUID();
+	 $RegistrationFee->setID($RID);
      $RegistrationFee->setUniversityID($UID);
      $RegistrationFee->setBatch($Batch);
      $RegistrationFee->setName($name);
@@ -76,7 +77,14 @@ if(isset($_POST['pay']))
 	 $RegistrationFee->setOthers($_DB->secureInput($_POST['ot']));
 	 $RegistrationFee->setTotal($Total);
 	 $_PaymentBAO->setRegistrationPayment($RegistrationFee);
-	 $_PaymentBAO->setRegistrationPayment($RegistrationFee);
+	 //for setting payment type
+	 $Type = "Registration Fee";
+	 $PaymentType = new PaymentType();
+	 $PaymentType->setID(Util::getGUID());
+	 $PaymentType->setPID($RID);
+	 $PaymentType->setUniversityID($UID);
+	 $PaymentType->setType($Type);
+	 $_PaymentBAO->setPaymentType($PaymentType);
 	 }
 }
 ?>

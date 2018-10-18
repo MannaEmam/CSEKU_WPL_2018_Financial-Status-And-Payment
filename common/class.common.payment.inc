@@ -270,7 +270,6 @@ class RegistrationFee {
     public function getTotal(){
         return $this->_Total;
     }
-
 }
  
 
@@ -304,5 +303,40 @@ class RegistrationFee {
     public function getAmount(){
         return $this->_Amount;
     }
+
  }
+ class PaymentType {
+
+    private $_ID;
+    private $_PID;
+    private $_UniversityID;
+    private $_Type;
+
+
+    public function setID($ID){
+        $this->_ID = $ID;
+    }
+    public function getID(){
+        return $this->_ID;
+    }
+    public function setPID($PID){
+        $this->_PID = $PID;
+    }
+    public function getPID(){
+        return $this->_PID;
+    }
+    public function setUniversityID($UniversityID){
+        $this->_UniversityID = $UniversityID;
+    }
+    public function getUniversityID(){
+        return $this->_UniversityID;
+    }
+    public function setType($Type){
+        $this->_Type = $Type;
+    }
+    public function getType(){
+        return $this->_Type;
+    }
+}
+
 ?>

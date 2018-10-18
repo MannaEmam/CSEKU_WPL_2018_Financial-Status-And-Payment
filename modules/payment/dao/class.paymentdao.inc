@@ -196,6 +196,7 @@ Class PaymentDAO{
 
 		return $Result;
 	}
+	/*
 	public function getRegistrationPayment(xx){
 		$SQL = 
 		$this->_DB->doQuery($SQL);
@@ -247,6 +248,19 @@ Class PaymentDAO{
 		$Result->setResultObject($SQL);
 
 		return $Result;		
+	}
+	*/
+		public function setPaymentType($PaymentType){
+		$ID =$PaymentType->getID();
+		$PID =$PaymentType->getPID();		
+		$UniversityID=$PaymentType->getUniversityID();
+		$Type=$PaymentType->getType();
+		$SQL = "INSERT pms_payment_type VALUES('$ID', '$PID' ,'$UniversityID','$Type')";
+		$SQL = $this->_DB->doQuery($SQL);
+		$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($SQL);
+		return $Result;
 	}
 }
 ?>
