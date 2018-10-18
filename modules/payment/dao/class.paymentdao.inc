@@ -255,7 +255,8 @@ Class PaymentDAO{
 		$PID =$PaymentType->getPID();		
 		$UniversityID=$PaymentType->getUniversityID();
 		$Type=$PaymentType->getType();
-		$SQL = "INSERT pms_payment_type VALUES('$ID', '$PID' ,'$UniversityID','$Type')";
+		$Date=$PaymentType->getDate();
+		$SQL = "INSERT pms_payment_type VALUES('$ID', '$PID' ,'$UniversityID','$Type','$Date')";
 		$SQL = $this->_DB->doQuery($SQL);
 		$Result = new Result();
 		$Result->setIsSuccess(1);

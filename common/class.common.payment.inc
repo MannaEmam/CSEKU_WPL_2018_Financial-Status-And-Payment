@@ -337,6 +337,12 @@ class RegistrationFee {
     public function getType(){
         return $this->_Type;
     }
+    public function setDate($Date){
+        $this->_Date = $Date;
+    }
+    public function getDate(){
+        return $this->_Date;
+    }
 }
 
 ?>

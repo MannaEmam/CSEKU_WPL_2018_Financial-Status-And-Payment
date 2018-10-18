@@ -956,4 +956,17 @@
 						<Permission>PAYMENT_R</Permission>
 					</Permissions>
 				</Menu>
+				<Menu>
+
+				<ParentMenu>Payment Related</ParentMenu>
+				<Title>My Account</Title>
+				<Link>myaccount.php</Link>
+				<Permissions>
+					<Permission>PAYMENT_C</Permission>
+					<Permission>PAYMENT_U</Permission>									
+					<Permission>PAYMENT_D</Permission>
+					<Permission>PAYMENT_R</Permission>
+				</Permissions>
+							
+			</Menu>
 </Menus>

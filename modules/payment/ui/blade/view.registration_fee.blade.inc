@@ -84,6 +84,7 @@ if(isset($_POST['pay']))
 	 $PaymentType->setPID($RID);
 	 $PaymentType->setUniversityID($UID);
 	 $PaymentType->setType($Type);
+	 $PaymentType->setDate($date);
 	 $_PaymentBAO->setPaymentType($PaymentType);
 	 }
 }
