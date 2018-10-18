@@ -8,11 +8,14 @@ $globalUser = '';
 $globalUser = $_SESSION["globalUser"];
 $User = new User();
 $User->setID($globalUser->getID());
+//
 $getROW = $_PaymentBAO->getUserById($User)->getResultObject();
-//getting discipline shortcode
+//getting balance
+$getAccount = $_PaymentBAO->getAccountDetails($getROW)->getResultObject();
+//getting discipline 
 $Discipline = $getROW->getDiscipline();
 //setting batch from university id
 $UID = $getROW->getUniversityID();
 //setting name
 $name = $getROW->getFirstName();
-$PaymentType = new PaymentType();
+$PaymentType = $_PaymentBAO->getPaymentType($getROW)->getResultObject();

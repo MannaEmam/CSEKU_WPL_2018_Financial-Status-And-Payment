@@ -1,22 +1,14 @@
 <?php
 include_once './common/class.common.inc';
-include_once 'blade/view.registration_fee.blade.inc';
+include_once 'blade/view.blade.payment_details.inc';
 ?>
 <div class="panel panel-default">
 <div class="panel-heading">Registration Fee </div>
 <div class="panel-body">
 <h1 class="hh1"> KHULNA UNIVERSITY </h1>
 <h2 class="hh1" id="hh2"> Students Payment Receipt </h2>
-<div class="aa">
-Name: <?php echo $getRegistrationFee->getName(); ?>			<br>
-Student id: <?php echo $getRegistrationFee->getUniversityID(); ?><br>
-Discipline: <?php echo $getRegistrationFee->getDiscipline(); ?><br>
-Date: <?php echo $getRegistrationFee->getDate(); ?><br>
-</div>
-<form class="f1" method="post">
-	<div class="aa">
-		 Term: <?php echo $getRegistrationFee->getTerm(); ?><br>
-	</div>
+<?php var_dump($getRegistrationFee->getAdmissionFee());
+?>
 <table width="437" class="t1">
 	  <tr>
     <th>Description</th>
@@ -25,7 +17,7 @@ Date: <?php echo $getRegistrationFee->getDate(); ?><br>
   <tr>
     <td>01. Admission fee</td>
     <td>
-	<?php echo $getRegistrationFee->getAdmissionFee(); ?><br>
+	<?php $getRegistrationFee->getAdmissionFee(); ?><br>
     </td>
   </tr>
 
@@ -230,6 +222,3 @@ Date: <?php echo $getRegistrationFee->getDate(); ?><br>
 	</tr>
 	</tr>
 </table>
-<br>
-	<input id="btn_s" type="submit" value="Pay Fee" name="pay">
-</form>

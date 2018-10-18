@@ -364,6 +364,7 @@ class PageUtil{
     public static $PAYMENT_RECHARGE='recharge.php';
     public static $PAYMENT_MESSAGE='message.php';     
     public static $PAYMENT_MYACCOUNT='myaccount.php';
+    public static $PAYMENT_REGISTRATION_DETAILS='registration_feedetails.php';
 }
 
 
@@ -510,7 +511,7 @@ class RouteUtil{
         self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]  =   "modules/payment/ui/view.recharge.inc";
         self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]  =   "modules/payment/ui/view.message.inc";
         self::$s_Routes[PageUtil::$PAYMENT_MYACCOUNT]  =   "modules/payment/ui/view.myaccount.inc";
-      
+        self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION_DETAILS]  =   "modules/payment/ui/view.registration_feedetails.inc";  
     }
 
     public static function getInstance() {

@@ -12,7 +12,7 @@ $getROW = $_PaymentBAO->getUserById($User)->getResultObject();
 $email = $getROW->getEmail();
 $getAccount = $_PaymentBAO->getAccountDetails($getROW)->getResultObject();
 $balance = $getAccount->getAmount();
-//getting discipline shortcode
+//getting discipline
 $Discipline = $getROW->getDiscipline();
 //setting batch from university id
 $UID = $getROW->getUniversityID();
@@ -86,6 +86,7 @@ if(isset($_POST['pay']))
 	 $PaymentType->setType($Type);
 	 $PaymentType->setDate($date);
 	 $_PaymentBAO->setPaymentType($PaymentType);
+	 header("Location: myaccount.php");	
 	 }
 }
 ?>

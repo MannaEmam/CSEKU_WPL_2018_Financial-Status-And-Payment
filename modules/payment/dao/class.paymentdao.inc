@@ -10,6 +10,7 @@ Class PaymentDAO{
 	private $_User;
 	private $_RegistrationFee;
 	private $_Recharge;
+	private $_PaymentType;
 
 	public function __construct(){
 
@@ -17,6 +18,7 @@ Class PaymentDAO{
 		$this->_User = new User();
 		$this->_RegistrationFee = new RegistrationFee();
 		$this->_Recharge = new Recharge();
+		$this->_PaymentType = new PaymentType();
 	}
 	public function getUserById($User){
 		$ID = $User->getID();
@@ -196,12 +198,12 @@ Class PaymentDAO{
 
 		return $Result;
 	}
-	/*
-	public function getRegistrationPayment(xx){
-		$SQL = 
+	//getting registration fee details
+	public function getRegistrationFee($RegistrationFee){
+		$ID = $RegistrationFee->getID();
+		$SQL = "SELECT * FROM pms_reg_fee WHERE ID='$ID'";
 		$this->_DB->doQuery($SQL);
 		$row = $this->_DB->getTopRow();
-
 		$this->_RegistrationFee = new RegistrationFee();
 
 		$this->_RegistrationFee->setID ( $row['ID']);	    	
@@ -245,11 +247,11 @@ Class PaymentDAO{
 
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);
-		$Result->setResultObject($SQL);
+		$Result->setResultObject($this->_RegistrationFee);
 
 		return $Result;		
 	}
-	*/
+		//setting payment type
 		public function setPaymentType($PaymentType){
 		$ID =$PaymentType->getID();
 		$PID =$PaymentType->getPID();		
@@ -261,6 +263,36 @@ Class PaymentDAO{
 		$Result = new Result();
 		$Result->setIsSuccess(1);
 		$Result->setResultObject($SQL);
+		return $Result;
+	}
+	//getting payment type
+	public function getPaymentType($User){
+
+		$UID = $User->getUniversityID();
+		$PaymentType = array();
+
+		$SQL = "SELECT * FROM pms_payment_type WHERE UniversityID ='$UID' ORDER BY `Date` DESC";
+		$this->_DB->doQuery($SQL);
+		$rows = $this->_DB->getAllRows();
+
+		for($i = 0; $i < sizeof($rows); $i++) {
+			$row = $rows[$i];
+			$this->_PaymentType = new PaymentType();
+
+		    $this->_PaymentType->setID ( $row['ID']);
+		    $this->_PaymentType->setPID ( $row['PID']);
+		    $this->_PaymentType->setUniversityID ( $row['UniversityID']);
+		    $this->_PaymentType->setType( $row['Type']);
+			$this->_PaymentType->setDate( $row['Date']);
+
+		    $PaymentType[]=$this->_PaymentType;
+   
+		}
+
+		$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($PaymentType);
+
 		return $Result;
 	}
 }
