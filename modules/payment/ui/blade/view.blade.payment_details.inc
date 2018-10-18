@@ -7,8 +7,10 @@ $getRegistrationFee = '';
 $Type = $_GET['type'];
 //payment id 
 $PID = $_GET['pid'];
-
+if ($Type = "RegistrationFee") {
 $RegistrationFee = new RegistrationFee();
 $RegistrationFee->setID($PID);
-$getRegistrationFee = $_PaymentBAO->getRegistrationFee($RegistrationFee);
+$getRegistrationFee = $_PaymentBAO->getRegistrationFee($RegistrationFee)->getResultObject();
+}
+
 ?>

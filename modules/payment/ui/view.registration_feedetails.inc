@@ -7,8 +7,13 @@ include_once 'blade/view.blade.payment_details.inc';
 <div class="panel-body">
 <h1 class="hh1"> KHULNA UNIVERSITY </h1>
 <h2 class="hh1" id="hh2"> Students Payment Receipt </h2>
-<?php var_dump($getRegistrationFee->getAdmissionFee());
-?>
+<div class="aa">
+Name: <?php echo $getRegistrationFee->getName(); ?>			<br>
+Discipline: <?php echo $getRegistrationFee->getDiscipline(); ?><br>
+Term: <?php echo $getRegistrationFee->getTerm(); ?><br>
+Student id: <?php echo $getRegistrationFee->getUniversityID(); ?><br>
+Date: <?php echo $getRegistrationFee->getDate(); ?><br>
+</div> 
 <table width="437" class="t1">
 	  <tr>
     <th>Description</th>
@@ -17,7 +22,7 @@ include_once 'blade/view.blade.payment_details.inc';
   <tr>
     <td>01. Admission fee</td>
     <td>
-	<?php $getRegistrationFee->getAdmissionFee(); ?><br>
+	<?php echo $getRegistrationFee->getAdmissionFee();?><br>
     </td>
   </tr>
 
@@ -45,14 +50,14 @@ include_once 'blade/view.blade.payment_details.inc';
 	<tr>
 		<td>05. Course registration</td>
 		<td>
-			<?php echo $getRegistrationFee->CourseRegistration(); ?><br>
+			<?php echo $getRegistrationFee->getCourseRegistration(); ?><br>
 		</td>
 	</tr>
 
 	<tr>
 		<td>06. Verification/Attestation fee</td>
 		<td>
-			<?php echo $getRegistrationFee->getgetVerification(); ?><br>
+			<?php echo $getRegistrationFee->getVerification(); ?><br>
 		</td>
 	</tr>
 
@@ -115,7 +120,7 @@ include_once 'blade/view.blade.payment_details.inc';
 	<tr>
 		<td>15. Session Charge</td>
 		<td>
-			<?php echo $getRegistrationFee->getSessionChargeSessionCharge(); ?><br>
+			<?php echo $getRegistrationFee->getSessionCharge(); ?><br>
 		</td>
 	</tr>
 
@@ -177,7 +182,7 @@ include_once 'blade/view.blade.payment_details.inc';
 	<tr>
 		<td>24. MC/MI Certificate</td>
 		<td>
-			<?php echo $getRegistrationFee->Mc_Mi(); ?><br>
+			<?php echo $getRegistrationFee->getMc_Mi(); ?><br>
 		</td>
 	</tr>
 
@@ -215,9 +220,9 @@ include_once 'blade/view.blade.payment_details.inc';
 			<?php echo $getRegistrationFee->getOthers(); ?><br>
 		</td>
 	<tr>
-		<td>30. Total</td>
+		<td> Total</td>
 		<td>
-			<?php echo $getRegistrationFee->getOthers(); ?> <br>
+			<?php echo $getRegistrationFee->getTotal(); ?> <br>
 		</td>
 	</tr>
 	</tr>

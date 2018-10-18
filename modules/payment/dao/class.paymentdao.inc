@@ -205,7 +205,6 @@ Class PaymentDAO{
 		$this->_DB->doQuery($SQL);
 		$row = $this->_DB->getTopRow();
 		$this->_RegistrationFee = new RegistrationFee();
-
 		$this->_RegistrationFee->setID ( $row['ID']);	    	
 		$this->_RegistrationFee->setUniversityID ( $row['UniversityID']);
 		$this->_RegistrationFee->setBatch ( $row['Batch']);
@@ -244,7 +243,6 @@ Class PaymentDAO{
 		$this->_RegistrationFee->setPublication ( $row['Publication']);
 		$this->_RegistrationFee->setOthers ( $row['Others']);
 		$this->_RegistrationFee->setTotal ( $row['Total']);
-
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);
 		$Result->setResultObject($this->_RegistrationFee);
@@ -262,7 +260,7 @@ Class PaymentDAO{
 		$SQL = $this->_DB->doQuery($SQL);
 		$Result = new Result();
 		$Result->setIsSuccess(1);
-		$Result->setResultObject($SQL);
+		$Result->setResultObject($RegistrationFee);
 		return $Result;
 	}
 	//getting payment type
