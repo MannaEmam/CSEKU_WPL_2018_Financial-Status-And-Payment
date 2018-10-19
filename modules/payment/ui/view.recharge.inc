@@ -1,6 +1,6 @@
 <?php
 include_once './common/class.common.inc';
-include_once 'blade/view.blade.recharge.inc';
+include_once 'blade/view.recharge.blade.inc';
 ?>
 <div class="panel panel-default">
 <div class="panel-heading">Recharge Log</div>

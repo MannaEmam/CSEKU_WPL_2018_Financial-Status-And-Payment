@@ -344,5 +344,173 @@ class RegistrationFee {
         return $this->_Date;
     }
 }
+//hall fee
+class HallFee {
+
+    private $_ID;
+    private $_UniversityID;
+    private $_Batch;
+    private $_Name;
+    private $_Email;
+    private $_HallName;
+    private $_FiscalYear;
+    private $_Discipline;
+    private $_Date;
+    private $_Admission;
+    private $_Institutional;
+    private $_IdentificationCard;
+    private $_SeatRent;
+    private $_Utensil;
+    private $_CommonRoom;
+    private $_Sports;
+    private $_ReligiousEvent;
+    private $_SecurityReturnable;
+    private $_Contingency;
+    private $_HallAnniversary;
+    private $_Fine;
+    private $_Others;
+    private $_Total;
+
+
+    public function setID($ID){
+        $this->_ID = $ID;
+    }
+    public function getID(){
+        return $this->_ID;
+    }
+    public function setUniversityID($UniversityID){
+        $this->_UniversityID = $UniversityID;
+    }
+    public function getUniversityID(){
+        return $this->_UniversityID;
+    }
+    public function setBatch($Batch){
+        $this->_Batch = $Batch;
+    }
+    public function getBatch(){
+        return $this->_Batch;
+    }
+    public function setName($Name){
+        $this->_Name = $Name;
+    }
+    public function getName(){
+        return $this->_Name;
+    }
+    public function setEmail($Email){
+        $this->_Email = $Email;
+    }
+    public function getEmail(){
+        return $this->_Email;
+    }
+    public function setHallName($HallName){
+        $this->_HallName = $HallName;
+    }
+    public function getHallName(){
+        return $this->_HallName;
+    }
+    public function setFiscalYear($FiscalYear){
+        $this->_FiscalYear= $FiscalYear;
+    }
+    public function getFiscalYear(){
+        return $this->_FiscalYear;
+    }
+    public function setDiscipline($Discipline){
+        $this->_Discipline = $Discipline;
+    }
+    public function getDiscipline(){
+        return $this->_Discipline;
+    }
+    public function setDate($Date){
+        $this->_Date = $Date;
+    }
+    public function getDate(){
+        return $this->_Date;
+    }
+    public function setAdmission($Admission){
+        $this->_Admission = $Admission;
+    }
+    public function getAdmission(){
+        return $this->_Admission;
+    }
+    public function setInstitutional($Institutional){
+        $this->_Institutional = $Institutional;
+    }
+    public function getInstitutional(){
+        return $this->_Institutional;
+    }
+    public function setIdentificationCard($IdentificationCard){
+        $this->_IdentificationCard = $IdentificationCard;
+    }
+    public function getIdentificationCard(){
+        return $this->_IdentificationCard;
+    }
+    public function setSeatRent($SeatRent){
+        $this->_SeatRent = $SeatRent;
+    }
+    public function getSeatRent(){
+        return $this->_SeatRent;
+    }
+    public function setUtensil($Utensil){
+        $this->_Utensil = $Utensil;
+    }
+    public function getUtensil(){
+        return $this->_Utensil;
+    }
+    public function setCommonRoom($CommonRoom){
+        $this->_CommonRoom = $CommonRoom;
+    }
+    public function getCommonRoom(){
+        return $this->_CommonRoom;
+    }
+    public function setSports($Sports){
+        $this->_Sports = $Sports;
+    }
+    public function getSports(){
+        return $this->_Sports;
+    }
+    public function setReligiousEvent($ReligiousEvent){
+        $this->_ReligiousEvent = $ReligiousEvent;
+    }
+    public function getReligiousEvent(){
+        return $this->_ReligiousEvent;
+    }
+    public function setSecurityReturnable($SecurityReturnable){
+        $this->_SecurityReturnable = $SecurityReturnable;
+    }
+    public function getSecurityReturnable(){
+        return $this->_SecurityReturnable;
+    }
+    public function setContingency($Contingency){
+        $this->_Contingency = $Contingency;
+    }
+    public function getContingency(){
+        return $this->_Contingency;
+    }
+    public function setHallAnniversary($HallAnniversary){
+        $this->_HallAnniversary = $HallAnniversary;
+    }
+    public function getHallAnniversary(){
+        return $this->_HallAnniversary;
+    }
+    public function setFine($Fine){
+        $this->_Fine = $Fine;
+    }
+    public function getFine(){
+        return $this->_Fine;
+    }
+    public function setOthers($Others){
+        $this->_Others = $Others;
+    }
+    public function getOthers(){
+        return $this->_Others;
+    }
+    public function setTotal($Total){
+        $this->_Total = $Total;
+    }
+    public function getTotal(){
+        return $this->_Total;
+    }
+
+}
 
 ?>

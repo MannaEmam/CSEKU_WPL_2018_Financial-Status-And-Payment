@@ -24,7 +24,7 @@ $name = $getROW->getFirstName();
 date_default_timezone_set("Asia/Dhaka");
 $date = date('Y/m/d');
 /* saving the registration Payment Receipt*/
-if(isset($_POST['pay']))
+if(isset($_POST['payr']))
 {
 	 $Total = ($_POST['af'] + $_POST['pb'] + $_POST['scg'] + $_POST['tp'] + $_POST['cr'] + $_POST['vf'] + $_POST['rt'] + $_POST['rrt'] + $_POST['bncc'] + $_POST['lb'] + $_POST['med'] + $_POST['cl'] + $_POST['rg'] + $_POST['ef'] + $_POST['sc'] + $_POST['gs'] + $_POST['pc'] + $_POST['mc'] + $_POST['tsc'] + $_POST['scl'] + $_POST['ec'] + $_POST['flib'] + $_POST['fcr'] + $_POST['mmc'] + $_POST['mfph'] + $_POST['sw'] + $_POST['sp'] + $_POST['pl'] + $_POST['ot'] );
 	 
@@ -89,4 +89,57 @@ if(isset($_POST['pay']))
 	 header("Location: myaccount.php");	
 	 }
 }
+/* saving the hall Payment Receipt*/
+if(isset($_POST['payh']))
+{
+	 $Total = ($_POST['adm'] + $_POST['ins'] + $_POST['ic'] + $_POST['sr'] + $_POST['ut'] + $_POST['cr'] + $_POST['sp'] + $_POST['re'] + $_POST['scr'] + $_POST['cgn'] + $_POST['ha'] + $_POST['fn'] + $_POST['ot'] );
+
+	 var_dump($Total);
+	 if($Total > $balance)
+	 {
+	 	header("Location: message.php");
+	 }
+	 else
+	 {
+
+	 $HallFee = new HallFee();
+	 $HID = Util::getGUID();
+	 $HallFee->setID($HID);
+     $HallFee->setUniversityID($UID);
+     $HallFee->setBatch($Batch);
+     $HallFee->setName($name);
+     $HallFee->setEmail($email);
+     $HallFee->setDate($date);
+     $HallFee->setDiscipline($Discipline);
+     $HallFee->setHallName($_DB->secureInput($_POST['hname']));
+     $HallFee->setFiscalYear($_DB->secureInput($_POST['fisy']));
+     $HallFee->setAdmission($_DB->secureInput($_POST['adm']));
+     $HallFee->setInstitutional($_DB->secureInput($_POST['ins']));
+	 $HallFee->setIdentificationCard($_DB->secureInput($_POST['ic']));
+	 $HallFee->setSeatRent($_DB->secureInput($_POST['sr']));
+	 $HallFee->setUtensil($_DB->secureInput($_POST['ut']));
+	 $HallFee->setCommonRoom($_DB->secureInput($_POST['cr']));
+	 $HallFee->setSports($_DB->secureInput($_POST['sp']));
+	 $HallFee->setReligiousEvent($_DB->secureInput($_POST['re']));
+	 $HallFee->setSecurityReturnable($_DB->secureInput($_POST['scr']));
+	 $HallFee->setContingency($_DB->secureInput($_POST['cgn']));
+	 $HallFee->setHallAnniversary($_DB->secureInput($_POST['ha']));
+	 $HallFee->setFine($_DB->secureInput($_POST['fn']));
+	 $HallFee->setOthers($_DB->secureInput($_POST['ot']));
+
+	 $HallFee->setTotal($Total);
+	 $_PaymentBAO->setHallPayment($HallFee);
+	 //for setting payment type
+	 $Type = "Hall Fee";
+	 $PaymentType = new PaymentType();
+	 $PaymentType->setID(Util::getGUID());
+	 $PaymentType->setPID($HID);
+	 $PaymentType->setUniversityID($UID);
+	 $PaymentType->setType($Type);
+	 $PaymentType->setDate($date);
+	 $_PaymentBAO->setPaymentType($PaymentType);
+	 header("Location: myaccount.php");
+	 }
+}
 ?>
+

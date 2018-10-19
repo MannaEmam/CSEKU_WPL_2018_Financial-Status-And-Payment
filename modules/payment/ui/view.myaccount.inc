@@ -1,6 +1,6 @@
 <?php
 include_once './common/class.common.inc';
-include_once 'blade/view.blade.myaccount.inc';
+include_once 'blade/view.myaccount.blade.inc';
 ?>
 <div class="panel panel-default">
 <div class="panel-heading">Account Details </div>
@@ -31,8 +31,14 @@ Balance: <?php echo $getAccount->getAmount(); ?> <br> <br>
     if($Type == "Registration Fee")
     {?>
    	<td><a href="registration_feedetails.php?type=<?php echo($Type); ?>&pid=<?php echo($PID); ?>">View Details</a></td>
-   <?php } ?>
-
+   <?php 
+ }//closing first if condition
+  if($Type == "Hall Fee")
+    { //2nd if condition started here     ?>
+ 
+      <td><a href="hall_feedetails.php?type=<?php echo($Type); ?>&pid=<?php echo($PID); ?>">View Details</a></td>
   </tr>
-<?php } ?>
+<?php 
+}//2nd if closed
+}//foreach loop closed?>
 </table>

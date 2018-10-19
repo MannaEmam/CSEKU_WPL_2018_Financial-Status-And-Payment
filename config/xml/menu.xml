@@ -992,10 +992,11 @@
 			<Permission>PAYMENT_R</Permission>
 		</Permissions>
 		</Menu>
+
 		<Menu>
 		<ParentMenu>Payment Related</ParentMenu>
 		<Title></Title>
-		<Link>registration_feedetails_admin.php</Link>
+		<Link>hall_feedetails.php</Link>
 		<Permissions>
 			<Permission>PAYMENT_C</Permission>
 			<Permission>PAYMENT_U</Permission>									

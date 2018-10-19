@@ -1,6 +1,6 @@
 <?php
 include_once './common/class.common.inc';
-include_once 'blade/view.blade.payment_details.inc';
+include_once 'blade/view.payment_details.blade.inc';
 ?>
 <div class="panel panel-default">
 <div class="panel-heading">Registration Fee </div>

@@ -11,6 +11,7 @@ Class PaymentDAO{
 	private $_RegistrationFee;
 	private $_Recharge;
 	private $_PaymentType;
+	private $_HallFee;
 
 	public function __construct(){
 
@@ -19,6 +20,7 @@ Class PaymentDAO{
 		$this->_RegistrationFee = new RegistrationFee();
 		$this->_Recharge = new Recharge();
 		$this->_PaymentType = new PaymentType();
+		$this->_HallFee = new HallFee();
 	}
 	public function getUserById($User){
 		$ID = $User->getID();
@@ -101,7 +103,7 @@ Class PaymentDAO{
 		$row = $this->_DB->getTopRow();
 
 			$amount = $row['Amount'] - $Total;
-			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount'";
+			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount' WHERE Email='$Email'";
 			$SQL3 = $this->_DB->doQuery($SQL3);
 
 	 	$Result = new Result();
@@ -134,7 +136,7 @@ Class PaymentDAO{
 		else
 		{
 			$amount = $Amount + $row['Amount'];
-			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount'";
+			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount' WHERE Email='$Email'";
 			$SQL3 = $this->_DB->doQuery($SQL3);
 		}
 
@@ -249,6 +251,8 @@ Class PaymentDAO{
 
 		return $Result;		
 	}
+		
+
 		//setting payment type
 		public function setPaymentType($PaymentType){
 		$ID =$PaymentType->getID();
@@ -343,6 +347,132 @@ Class PaymentDAO{
 		$this->_RegistrationFee->setTotal ( $row['Total']);
 		
 		$LogList[]=$this->_RegistrationFee;  
+		}
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($LogList);
+
+		return $Result;		
+	}
+
+		//paying registration fee with object
+	public function setHallPayment($HallFee){
+		
+		$ID =$HallFee->getID();
+		$UniversityID=$HallFee->getUniversityID();
+		$Batch =$HallFee->getBatch();
+		$Name=$HallFee->getName();
+		$Email=$HallFee->getEmail();
+		$HallName=$HallFee->getHallName();
+		$FiscalYear=$HallFee->getFiscalYear();
+    	$Discipline=$HallFee->getDiscipline();
+    	$Date=$HallFee->getDate();
+    	$Admission=$HallFee->getAdmission();
+    	$Institutional=$HallFee->getInstitutional();
+    	$IdentificationCard=$HallFee->getIdentificationCard();
+    	$SeatRent=$HallFee->getSeatRent();
+    	$Utensil=$HallFee->getUtensil();
+    	$CommonRoom=$HallFee->getCommonRoom();
+    	$Sports=$HallFee->getSports();
+    	$ReligiousEvent=$HallFee->getReligiousEvent();
+    	$SecurityReturnable=$HallFee->getSecurityReturnable();
+    	$Contingency=$HallFee->getContingency();
+    	$HallAnniversary=$HallFee->getHallAnniversary();
+    	$Fine=$HallFee->getFine();
+    	$Others=$HallFee->getOthers();
+    	$Total=$HallFee->getTotal();
+
+		$SQL = "INSERT INTO pms_Hall_fee VALUES('$ID','$UniversityID', '$Batch' ,'$Name','$Email','$HallName','$FiscalYear','$Discipline','$Date','$Admission','$Institutional','$IdentificationCard','$SeatRent','$Utensil','$CommonRoom','$Sports','$ReligiousEvent','$SecurityReturnable','$Contingency','$HallAnniversary','$Fine','$Others','$Total')";
+
+
+		$SQL = $this->_DB->doQuery($SQL);
+		//updating balance after paying fee
+
+		$SQL2 = "SELECT Amount FROM pms_recharge WHERE Email='$Email'";
+		$SQL2 = $this->_DB->doQuery($SQL2);
+		$row = $this->_DB->getTopRow();
+
+			$amount = $row['Amount'] - $Total;
+			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount' WHERE Email='$Email'";
+			$SQL3 = $this->_DB->doQuery($SQL3);
+
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($SQL);
+
+		return $Result;		
+	}
+	//get hall fee detials using hall payment id
+	public function getHallFee($HallFee){
+		$ID = $HallFee->getID();
+		$SQL = "SELECT * FROM pms_hall_fee WHERE ID='$ID'";
+		$this->_DB->doQuery($SQL);
+		$row = $this->_DB->getTopRow();
+
+		$this->_HallFee->setID ( $row['ID']);
+		$this->_HallFee->setUniversityID ( $row['UniversityID']);
+		$this->_HallFee->setBatch ( $row['Batch']);
+		$this->_HallFee->setName ( $row['Name']);
+		$this->_HallFee->setEmail ( $row['Email']);
+		$this->_HallFee->setHallName ( $row['HallName']);
+		$this->_HallFee->setFiscalYear ( $row['FiscalYear']);
+		$this->_HallFee->setDiscipline ( $row['Discipline']);
+		$this->_HallFee->setDate ( $row['Date']);
+		$this->_HallFee->setAdmission ( $row['Admission']);
+		$this->_HallFee->setInstitutional($row['Institutional']);
+		$this->_HallFee->setIdentificationCard ( $row['IdentificationCard']);
+		$this->_HallFee->setSeatRent ( $row['SeatRent']);
+		$this->_HallFee->setUtensil ( $row['Utensil']);
+		$this->_HallFee->setCommonRoom ( $row['CommonRoom']);
+		$this->_HallFee->setSports ( $row['Sports']);
+		$this->_HallFee->setReligiousEvent ( $row['ReligiousEvent']);
+		$this->_HallFee->setSecurityReturnable ( $row['SecurityReturnable']);
+		$this->_HallFee->setContingency ( $row['Contingency']);
+		$this->_HallFee->setHallAnniversary ( $row['HallAnniversary']);
+		$this->_HallFee->setFine ( $row['Fine']);
+		$this->_HallFee->setOthers ( $row['Others']);
+		$this->_HallFee->setTotal ( $row['Total']);
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($this->_HallFee);
+
+		return $Result;		
+	}
+
+	//getting Hall fee by student id
+	public function getHallFeeBySid($HallFee){
+		$LogList = array();
+		$SID = $HallFee->getUniversityID();
+		$SQL = "SELECT * FROM pms_hall_fee WHERE UniversityID='$SID' ORDER BY `Date` DESC";
+		$this->_DB->doQuery($SQL);
+		$rows = $this->_DB->getAllRows();
+		for($i = 0; $i < sizeof($rows); $i++) {
+		$row = $rows[$i];
+		$this->_HallFee = new HallFee();
+		$this->_HallFee->setID ( $row['ID']);
+		$this->_HallFee->setUniversityID ( $row['UniversityID']);
+		$this->_HallFee->setBatch ( $row['Batch']);
+		$this->_HallFee->setName ( $row['Name']);
+		$this->_HallFee->setEmail ( $row['Email']);
+		$this->_HallFee->setHallName ( $row['HallName']);
+		$this->_HallFee->setFiscalYear ( $row['FiscalYear']);
+		$this->_HallFee->setDiscipline ( $row['Discipline']);
+		$this->_HallFee->setDate ( $row['Date']);
+		$this->_HallFee->setAdmission ( $row['Admission']);
+		$this->_HallFee->setInstitutional($row['Institutional']);
+		$this->_HallFee->setIdentificationCard ( $row['IdentificationCard']);
+		$this->_HallFee->setSeatRent ( $row['SeatRent']);
+		$this->_HallFee->setUtensil ( $row['Utensil']);
+		$this->_HallFee->setCommonRoom ( $row['CommonRoom']);
+		$this->_HallFee->setSports ( $row['Sports']);
+		$this->_HallFee->setReligiousEvent ( $row['ReligiousEvent']);
+		$this->_HallFee->setSecurityReturnable ( $row['SecurityReturnable']);
+		$this->_HallFee->setContingency ( $row['Contingency']);
+		$this->_HallFee->setHallAnniversary ( $row['HallAnniversary']);
+		$this->_HallFee->setFine ( $row['Fine']);
+		$this->_HallFee->setOthers ( $row['Others']);
+		$this->_HallFee->setTotal ( $row['Total']);
+		$LogList[]=$this->_HallFee;  
 		}
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);

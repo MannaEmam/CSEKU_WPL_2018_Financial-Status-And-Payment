@@ -1,6 +1,6 @@
 <?php
 include_once './common/class.common.inc';
-include_once 'blade/view.registration_fee.blade.inc';
+include_once 'blade/view.payment.blade.inc';
 ?>
 <div class="panel panel-default">
 <div class="panel-heading">Registration Fee </div>
@@ -225,5 +225,5 @@ Discipline: <?php echo $getROW->getDiscipline(); ?><br>
 	</tr>
 </table>
 <br>
-	<input id="btn_s" type="submit" value="Pay Fee" name="pay">
+	<input id="btn_s" type="submit" value="Pay Fee" name="payr">
 </form>

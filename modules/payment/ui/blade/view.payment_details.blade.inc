@@ -12,5 +12,11 @@ $RegistrationFee = new RegistrationFee();
 $RegistrationFee->setID($PID);
 $getRegistrationFee = $_PaymentBAO->getRegistrationFee($RegistrationFee)->getResultObject();
 }
+else if ($Type == "Hall Fee") {
+$HallFee = new HallFee();
+$HallFee->setID($PID);
+$getHallFee = $_PaymentBAO->getHallFee($HallFee)->getResultObject();
+}
+
 
 ?>

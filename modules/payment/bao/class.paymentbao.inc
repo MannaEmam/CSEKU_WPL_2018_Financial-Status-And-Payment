@@ -30,7 +30,7 @@ Class PaymentBAO{
 		$Result = $this->_PaymentDAO->setRegistrationPayment($RegistrationFee);
 		
 		if(!$Result->getIsSuccess())
-			$Result->setResultObject("Database failure in PaymentDAO.RegistrationPayment()");		
+			$Result->setResultObject("Database failure in PaymentDAO.setRegistrationPayment()");		
 
 		return $Result;
 	}
@@ -104,6 +104,39 @@ Class PaymentBAO{
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in PaymentDAO.getPaymentType()");		
+
+		return $Result;
+	}
+
+	//hall fee
+	public function setHallPayment($HallFee){
+		var_dump($HallFee);
+				$Result = new Result();	
+		$Result = $this->_PaymentDAO->setHallPayment($HallFee);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.setHallPayment()");		
+
+		return $Result;
+	}
+	//getting hall fee details by payment id
+	public function getHallFee($HallFee){
+
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getHallFee($HallFee);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getHallFee()");		
+
+		return $Result;
+	}
+		//get hall fee details by student id
+	public function getHallFeeBySid($HallFee){
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getHallFeeBySid($HallFee);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getHallFeeBySid()");		
 
 		return $Result;
 	}
