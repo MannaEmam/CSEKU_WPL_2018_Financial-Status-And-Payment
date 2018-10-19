@@ -28,7 +28,7 @@ Balance: <?php echo $getAccount->getAmount(); ?> <br> <br>
     <?php 
     $Type =	$result->getType();
     $PID =  $result->getPID();
-    if($Type = "Registration Fee")
+    if($Type == "Registration Fee")
     {?>
    	<td><a href="registration_feedetails.php?type=<?php echo($Type); ?>&pid=<?php echo($PID); ?>">View Details</a></td>
    <?php } ?>

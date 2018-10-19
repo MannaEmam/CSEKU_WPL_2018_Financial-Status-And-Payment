@@ -970,7 +970,6 @@
 				</Permissions>
 							
 			</Menu>
-
 			<Menu>
 			<ParentMenu>Payment Related</ParentMenu>
 			<Title></Title>
@@ -981,5 +980,27 @@
 				<Permission>PAYMENT_D</Permission>
 				<Permission>PAYMENT_R</Permission>
 			</Permissions>
+		</Menu>
+				<Menu>
+		<ParentMenu>Payment Related</ParentMenu>
+		<Title>Payment Log</Title>
+		<Link>payment_log.php</Link>
+		<Permissions>
+			<Permission>PAYMENT_C</Permission>
+			<Permission>PAYMENT_U</Permission>									
+			<Permission>PAYMENT_D</Permission>
+			<Permission>PAYMENT_R</Permission>
+		</Permissions>
+		</Menu>
+		<Menu>
+		<ParentMenu>Payment Related</ParentMenu>
+		<Title></Title>
+		<Link>registration_feedetails_admin.php</Link>
+		<Permissions>
+			<Permission>PAYMENT_C</Permission>
+			<Permission>PAYMENT_U</Permission>									
+			<Permission>PAYMENT_D</Permission>
+			<Permission>PAYMENT_R</Permission>
+		</Permissions>
 		</Menu>
 </Menus>

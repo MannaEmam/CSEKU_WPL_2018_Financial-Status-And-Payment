@@ -66,7 +66,7 @@ Class PaymentBAO{
 
 		return $Result;
 	}
-//getting registration fee details
+//getting registration fee details by payment id
 	public function getRegistrationFee($RegistrationFee){
 
 		$Result = new Result();	
@@ -74,6 +74,16 @@ Class PaymentBAO{
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in PaymentDAO.getRegistrationFee()");		
+
+		return $Result;
+	}
+	//get registration fee details by student id
+	public function getRegistrationFeeBySid($RegistrationFee){
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getRegistrationFeeBySid($RegistrationFee);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getRegistrationFeeBySid()");		
 
 		return $Result;
 	}

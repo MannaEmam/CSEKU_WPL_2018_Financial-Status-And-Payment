@@ -365,6 +365,8 @@ class PageUtil{
     public static $PAYMENT_MESSAGE='message.php';     
     public static $PAYMENT_MYACCOUNT='myaccount.php';
     public static $PAYMENT_REGISTRATION_DETAILS='registration_feedetails.php';
+    public static $PAYMENT_LOG='payment_log.php';
+    public static $PAYMENT_REGISTRATION_DETAILS_ADMIN='registration_feedetails_admin.php';
 }
 
 
@@ -511,7 +513,9 @@ class RouteUtil{
         self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]  =   "modules/payment/ui/view.recharge.inc";
         self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]  =   "modules/payment/ui/view.message.inc";
         self::$s_Routes[PageUtil::$PAYMENT_MYACCOUNT]  =   "modules/payment/ui/view.myaccount.inc";
-        self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION_DETAILS]  =   "modules/payment/ui/view.registration_feedetails.inc";  
+        self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION_DETAILS]  =   "modules/payment/ui/view.registration_feedetails.inc";
+        self::$s_Routes[PageUtil::$PAYMENT_LOG]  =   "modules/payment/ui/view.payment_log.inc";
+        self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION_DETAILS_ADMIN]  =   "modules/payment/ui/view.registration_feedetails_admin.inc";
     }
 
     public static function getInstance() {
@@ -639,9 +643,10 @@ class MiddlewareUtil{
          self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION]   =  PageUtil::$LOGIN ;
     //  self::$s_Routes[PageUtil::$PAYMENT_HALL]   =  PageUtil::$LOGIN ;
     //  self::$s_Routes[PageUtil::$PAYMENT_OTHETRS]   =  PageUtil::$LOGIN ; 
-         self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]   =  PageUtil::$LOGIN ;
+         //self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]   =  PageUtil::$LOGIN ;
          self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]   =  PageUtil::$LOGIN ;
-         self::$s_Routes[PageUtil::$PAYMENT_MYACCOUNT]   =  PageUtil::$LOGIN ;           
+         self::$s_Routes[PageUtil::$PAYMENT_MYACCOUNT]   =  PageUtil::$LOGIN ;
+         self::$s_Routes[PageUtil::$PAYMENT_LOG]   =  PageUtil::$LOGIN ;            
          
    
     }

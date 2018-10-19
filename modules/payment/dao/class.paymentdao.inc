@@ -293,5 +293,62 @@ Class PaymentDAO{
 
 		return $Result;
 	}
+//getting registration fee by student id
+	public function getRegistrationFeeBySid($RegistrationFee){
+		$LogList = array();
+		$SID = $RegistrationFee->getUniversityID();
+		$SQL = "SELECT * FROM pms_reg_fee WHERE UniversityID='$SID' ORDER BY `Date` DESC";
+		$this->_DB->doQuery($SQL);
+		$rows = $this->_DB->getAllRows();
+		for($i = 0; $i < sizeof($rows); $i++) {
+		$row = $rows[$i];
+		$this->_RegistrationFee = new RegistrationFee();
+		$this->_RegistrationFee->setID ( $row['ID']);	    	
+		$this->_RegistrationFee->setUniversityID ( $row['UniversityID']);
+		$this->_RegistrationFee->setBatch ( $row['Batch']);
+		$this->_RegistrationFee->setName ( $row['Name']);
+		$this->_RegistrationFee->setEmail ( $row['Email']);
+		$this->_RegistrationFee->setTerm ( $row['Term']);
+		$this->_RegistrationFee->setDiscipline ( $row['Discipline']);
+		$this->_RegistrationFee->setDate ( $row['Date']);
+		$this->_RegistrationFee->setAdmissionFee ( $row['AdmissionFee']);
+		$this->_RegistrationFee->setPayBook ( $row['PayBook']);
+		$this->_RegistrationFee->setSecurity ( $row['Security']);
+		$this->_RegistrationFee->setTransportation ( $row['Transportation']);
+		$this->_RegistrationFee->setCourseRegistration ( $row['CourseRegistration']);
+		$this->_RegistrationFee->setVerification ( $row['Verification']);
+		$this->_RegistrationFee->setRetake ( $row['Retake']);
+		$this->_RegistrationFee->setReRetake ( $row['ReRetake']);
+		$this->_RegistrationFee->setBncc ( $row['Bncc']);
+		$this->_RegistrationFee->setLibrary ( $row['Library']);
+		$this->_RegistrationFee->setMedical ( $row['Medical']);
+		$this->_RegistrationFee->setCultural ( $row['Cultural']);
+		$this->_RegistrationFee->setReligiousFee ( $row['ReligiousFee']);
+		$this->_RegistrationFee->setExaminationFee ( $row['ExaminationFee']);
+		$this->_RegistrationFee->setSessionCharge ( $row['SessionCharge']);
+		$this->_RegistrationFee->setGradesheet ( $row['Gradesheet']);
+		$this->_RegistrationFee->setProvisionalCertificate ( $row['ProvisionalCertificate']);
+		$this->_RegistrationFee->setMainCertificate ( $row['MainCertificate']);
+		$this->_RegistrationFee->setTranscript ( $row['Transcript']);
+		$this->_RegistrationFee->setSecurityLibrary ( $row['SecurityLibrary']);
+		$this->_RegistrationFee->setEquivalenceCertificate ( $row['EquivalenceCertificate']);
+		$this->_RegistrationFee->setFineLibrary ( $row['FineLibrary']);
+		$this->_RegistrationFee->setFineRegistration ( $row['FineRegistration']);
+		$this->_RegistrationFee->setMc_Mi ( $row['Mc_Mi']);
+		$this->_RegistrationFee->setMphilPhd ( $row['MphilPhd']);
+		$this->_RegistrationFee->setStudentWelfare ( $row['StudentWelfare']);
+		$this->_RegistrationFee->setSports ( $row['Sports']);
+		$this->_RegistrationFee->setPublication ( $row['Publication']);
+		$this->_RegistrationFee->setOthers ( $row['Others']);
+		$this->_RegistrationFee->setTotal ( $row['Total']);
+		
+		$LogList[]=$this->_RegistrationFee;  
+		}
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($LogList);
+
+		return $Result;		
+	}
 }
 ?>
