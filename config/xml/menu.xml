@@ -938,10 +938,10 @@
 					<Title>Recharge</Title>
 					<Link>Recharge.php</Link>
 					<Permissions>
-						<Permission>PAYMENT_C</Permission>
-						<Permission>PAYMENT_U</Permission>									
-						<Permission>PAYMENT_D</Permission>
-						<Permission>PAYMENT_R</Permission>
+						<Permission>PAYMENT_RECHARGE_C</Permission>
+						<Permission>PAYMENT_RECHARGE_U</Permission>									
+						<Permission>PAYMENT_RECHARGE_D</Permission>
+						<Permission>PAYMENT_RECHARGE_R</Permission>
 					</Permissions>
 								
 				</Menu>
@@ -986,16 +986,15 @@
 		<Title>Payment Log</Title>
 		<Link>payment_log.php</Link>
 		<Permissions>
-			<Permission>PAYMENT_C</Permission>
-			<Permission>PAYMENT_U</Permission>									
-			<Permission>PAYMENT_D</Permission>
-			<Permission>PAYMENT_R</Permission>
+			<Permission>PAYMENT_LOG_C</Permission>
+			<Permission>PAYMENT_LOG_U</Permission>									
+			<Permission>PAYMENT_LOG_D</Permission>
+			<Permission>PAYMENT_LOG_R</Permission>
 		</Permissions>
 		</Menu>
 
 		<Menu>
 		<ParentMenu>Payment Related</ParentMenu>
-		<Title></Title>
 		<Link>hall_feedetails.php</Link>
 		<Permissions>
 			<Permission>PAYMENT_C</Permission>

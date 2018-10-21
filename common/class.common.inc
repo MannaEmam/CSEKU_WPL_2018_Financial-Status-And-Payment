@@ -261,6 +261,16 @@ class PermissionUtil{
     public static $PAYMENT_U='PAYMENT_U';
     public static $PAYMENT_D='PAYMENT_D';
 
+    public static $PAYMENT_LOG_C='PAYMENT_LOG_C';
+    public static $PAYMENT_LOG_R='PAYMENT_LOG_R';
+    public static $PAYMENT_LOG_U='PAYMENT_LOG_U';
+    public static $PAYMENT_LOG_D='PAYMENT_LOG_D';
+
+    public static $PAYMENT_RECHARGE_C='PAYMENT_RECHARGE_C';
+    public static $PAYMENT_RECHARGE_R='PAYMENT_RECHARGE_R';
+    public static $PAYMENT_RECHARGE_U='PAYMENT_RECHARGE_U';
+    public static $PAYMENT_RECHARGE_D='PAYMENT_RECHARGE_D';
+
 
 }
 

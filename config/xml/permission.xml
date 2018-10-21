@@ -786,4 +786,55 @@
 		<name>PAYMENT_D</name>
 		<category>PAYMENT</category>
 	</permission>
+
+
+
+
+
+	<permission>
+		<id>PAYMENT_LOG_C</id>
+		<name>PAYMENT_LOG_C</name>
+		<category>PAYMENT_LOG</category>
+	</permission>
+
+	<permission>
+		<id>PAYMENT_LOG_R</id>
+		<name>PAYMENT_LOG_R</name>
+		<category>PAYMENT_LOG</category>
+	</permission>
+
+	<permission>
+		<id>PAYMENT_LOG_U</id>
+		<name>PAYMENT_LOG_U</name>
+		<category>PAYMENT_LOG</category>
+	</permission>
+
+	<permission>
+		<id>PAYMENT_LOG_D</id>
+		<name>PAYMENT_LOG_D</name>
+		<category>PAYMENT_LOG</category>
+	</permission>
+	<permission>
+		<id>PAYMENT_RECHARGE_C</id>
+		<name>PAYMENT_RECHARGE_C</name>
+		<category>PAYMENT_RECHARGE</category>
+	</permission>
+
+	<permission>
+		<id>PAYMENT_RECHARGE_R</id>
+		<name>PAYMENT_RECHARGE_R</name>
+		<category>PAYMENT_RECHARGE</category>
+	</permission>
+
+	<permission>
+		<id>PAYMENT_RECHARGE_U</id>
+		<name>PAYMENT_RECHARGE_U</name>
+		<category>PAYMENT_RECHARGE</category>
+	</permission>
+
+	<permission>
+		<id>PAYMENT_RECHARGE_D</id>
+		<name>PAYMENT_RECHARGE_D</name>
+		<category>PAYMENT_RECHARGE</category>
+	</permission>
 </permissions>
