@@ -12,6 +12,7 @@ Class PaymentDAO{
 	private $_Recharge;
 	private $_PaymentType;
 	private $_HallFee;
+	private $_OthersFee;
 
 	public function __construct(){
 
@@ -21,6 +22,7 @@ Class PaymentDAO{
 		$this->_Recharge = new Recharge();
 		$this->_PaymentType = new PaymentType();
 		$this->_HallFee = new HallFee();
+		$this->_OthersFee = new OthersFee();
 	}
 	public function getUserById($User){
 		$ID = $User->getID();
@@ -355,7 +357,7 @@ Class PaymentDAO{
 		return $Result;		
 	}
 
-		//paying registration fee with object
+		//paying Hall fee with object
 	public function setHallPayment($HallFee){
 		
 		$ID =$HallFee->getID();
@@ -382,7 +384,7 @@ Class PaymentDAO{
     	$Others=$HallFee->getOthers();
     	$Total=$HallFee->getTotal();
 
-		$SQL = "INSERT INTO pms_Hall_fee VALUES('$ID','$UniversityID', '$Batch' ,'$Name','$Email','$HallName','$FiscalYear','$Discipline','$Date','$Admission','$Institutional','$IdentificationCard','$SeatRent','$Utensil','$CommonRoom','$Sports','$ReligiousEvent','$SecurityReturnable','$Contingency','$HallAnniversary','$Fine','$Others','$Total')";
+		$SQL = "INSERT INTO pms_hall_fee VALUES('$ID','$UniversityID', '$Batch' ,'$Name','$Email','$HallName','$FiscalYear','$Discipline','$Date','$Admission','$Institutional','$IdentificationCard','$SeatRent','$Utensil','$CommonRoom','$Sports','$ReligiousEvent','$SecurityReturnable','$Contingency','$HallAnniversary','$Fine','$Others','$Total')";
 
 
 		$SQL = $this->_DB->doQuery($SQL);
@@ -473,6 +475,90 @@ Class PaymentDAO{
 		$this->_HallFee->setOthers ( $row['Others']);
 		$this->_HallFee->setTotal ( $row['Total']);
 		$LogList[]=$this->_HallFee;  
+		}
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($LogList);
+
+		return $Result;		
+	}
+
+//paying Others fee with object
+	public function setOthersPayment($Others){
+		
+		$ID =$Others->getID();
+		$UniversityID=$Others->getUniversityID();
+		$Batch =$Others->getBatch();
+		$Name=$Others->getName();
+		$Email=$Others->getEmail();
+    	$Discipline=$Others->getDiscipline();
+    	$Date=$Others->getDate();
+    	$Description=$Others->getDescription();
+    	$Total=$Others->getTotal();
+
+		$SQL = "INSERT INTO pms_others_fee VALUES('$ID','$UniversityID', '$Batch' ,'$Name','$Email','$Discipline','$Date', '$Description', '$Total')";
+
+
+		$SQL = $this->_DB->doQuery($SQL);
+		//updating balance after paying fee
+
+		$SQL2 = "SELECT Amount FROM pms_recharge WHERE Email='$Email'";
+		$SQL2 = $this->_DB->doQuery($SQL2);
+		$row = $this->_DB->getTopRow();
+
+			$amount = $row['Amount'] - $Total;
+			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount' WHERE Email='$Email'";
+			$SQL3 = $this->_DB->doQuery($SQL3);
+
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($SQL);
+
+		return $Result;		
+	}
+	//get others fee detials using others payment id
+	public function getOthersFee($OthersFee){
+		$ID = $OthersFee->getID();
+		$SQL = "SELECT * FROM pms_others_fee WHERE ID='$ID'";
+		$this->_DB->doQuery($SQL);
+		$row = $this->_DB->getTopRow();
+		$this->_OthersFee = new OthersFee();
+		$this->_OthersFee->setID ( $row['ID']);
+		$this->_OthersFee->setUniversityID ( $row['UniversityID']);
+		$this->_OthersFee->setBatch ( $row['Batch']);
+		$this->_OthersFee->setName ( $row['Name']);
+		$this->_OthersFee->setEmail ( $row['Email']);
+		$this->_OthersFee->setDiscipline ( $row['Discipline']);
+		$this->_OthersFee->setDate ( $row['Date']);
+		$this->_OthersFee->setDescription ( $row['Description']);
+		$this->_OthersFee->setTotal ( $row['Total']);
+	 	$Result = new Result();
+		$Result->setIsSuccess(1);
+		$Result->setResultObject($this->_OthersFee);
+
+		return $Result;		
+	}
+
+	//getting Others fee by student id
+	public function getOthersFeeBySid($HallFee){
+		$LogList = array();
+		$SID = $HallFee->getUniversityID();
+		$SQL = "SELECT * FROM pms_others_fee WHERE UniversityID='$SID' ORDER BY `Date` DESC";
+		$this->_DB->doQuery($SQL);
+		$rows = $this->_DB->getAllRows();
+		for($i = 0; $i < sizeof($rows); $i++) {
+		$row = $rows[$i];
+		$this->_OthersFee = new OthersFee();
+		$this->_OthersFee->setID ( $row['ID']);
+		$this->_OthersFee->setUniversityID ( $row['UniversityID']);
+		$this->_OthersFee->setBatch ( $row['Batch']);
+		$this->_OthersFee->setName ( $row['Name']);
+		$this->_OthersFee->setEmail ( $row['Email']);
+		$this->_OthersFee->setDiscipline ( $row['Discipline']);
+		$this->_OthersFee->setDate ( $row['Date']);
+		$this->_OthersFee->setDescription ( $row['Description']);
+		$this->_OthersFee->setTotal ( $row['Total']);
+		$LogList[]=$this->_OthersFee;  
 		}
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);

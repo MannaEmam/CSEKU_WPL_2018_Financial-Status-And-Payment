@@ -17,6 +17,9 @@ $HallFee = new HallFee();
 $HallFee->setID($PID);
 $getHallFee = $_PaymentBAO->getHallFee($HallFee)->getResultObject();
 }
-
-
+else if ($Type == "Others Fee") {
+$Others = new OthersFee();
+$Others->setID($PID);
+$getOthersFee = $_PaymentBAO->getOthersFee($Others)->getResultObject();
+}
 ?>

@@ -35,3 +35,8 @@ input[type=number] {
 td{
     text-align: left;
 }
+#textboxid
+{
+    height:200px;
+    font-size:14pt;
+}

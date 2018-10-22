@@ -513,4 +513,74 @@ class HallFee {
 
 }
 
+//others
+class OthersFee {
+
+    private $_ID;
+    private $_UniversityID;
+    private $_Batch;
+    private $_Name;
+    private $_Email;
+    private $_Discipline;
+    private $_Date;
+    private $_Description;
+    private $_Total;
+
+
+    public function setID($ID){
+        $this->_ID = $ID;
+    }
+    public function getID(){
+        return $this->_ID;
+    }
+    public function setUniversityID($UniversityID){
+        $this->_UniversityID = $UniversityID;
+    }
+    public function getUniversityID(){
+        return $this->_UniversityID;
+    }
+    public function setBatch($Batch){
+        $this->_Batch = $Batch;
+    }
+    public function getBatch(){
+        return $this->_Batch;
+    }
+    public function setName($Name){
+        $this->_Name = $Name;
+    }
+    public function getName(){
+        return $this->_Name;
+    }
+    public function setEmail($Email){
+        $this->_Email = $Email;
+    }
+    public function getEmail(){
+        return $this->_Email;
+    }
+    public function setDiscipline($Discipline){
+        $this->_Discipline = $Discipline;
+    }
+    public function getDiscipline(){
+        return $this->_Discipline;
+    }
+    public function setDate($Date){
+        $this->_Date = $Date;
+    }
+    public function getDate(){
+        return $this->_Date;
+    }
+    public function setDescription($Description){
+        $this->_Description = $Description;
+    }
+    public function getDescription(){
+        return $this->_Description;
+    }
+    public function setTotal($Total){
+        $this->_Total = $Total;
+    }
+    public function getTotal(){
+        return $this->_Total;
+    }
+
+}
 ?>

@@ -944,7 +944,7 @@
 						<Permission>PAYMENT_RECHARGE_R</Permission>
 					</Permissions>
 								
-				</Menu>
+				</Menu>x
 					<Menu>
 					<ParentMenu>Payment Related</ParentMenu>
 					<Title></Title>
@@ -996,6 +996,18 @@
 		<Menu>
 		<ParentMenu>Payment Related</ParentMenu>
 		<Link>hall_feedetails.php</Link>
+		<Permissions>
+			<Permission>PAYMENT_C</Permission>
+			<Permission>PAYMENT_U</Permission>									
+			<Permission>PAYMENT_D</Permission>
+			<Permission>PAYMENT_R</Permission>
+		</Permissions>
+		</Menu>
+
+
+		<Menu>
+		<ParentMenu>Payment Related</ParentMenu>
+		<Link>others_feedetails.php</Link>
 		<Permissions>
 			<Permission>PAYMENT_C</Permission>
 			<Permission>PAYMENT_U</Permission>									

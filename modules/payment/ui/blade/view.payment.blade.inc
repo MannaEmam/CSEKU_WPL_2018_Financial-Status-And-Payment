@@ -94,7 +94,6 @@ if(isset($_POST['payh']))
 {
 	 $Total = ($_POST['adm'] + $_POST['ins'] + $_POST['ic'] + $_POST['sr'] + $_POST['ut'] + $_POST['cr'] + $_POST['sp'] + $_POST['re'] + $_POST['scr'] + $_POST['cgn'] + $_POST['ha'] + $_POST['fn'] + $_POST['ot'] );
 
-	 var_dump($Total);
 	 if($Total > $balance)
 	 {
 	 	header("Location: message.php");
@@ -134,6 +133,42 @@ if(isset($_POST['payh']))
 	 $PaymentType = new PaymentType();
 	 $PaymentType->setID(Util::getGUID());
 	 $PaymentType->setPID($HID);
+	 $PaymentType->setUniversityID($UID);
+	 $PaymentType->setType($Type);
+	 $PaymentType->setDate($date);
+	 $_PaymentBAO->setPaymentType($PaymentType);
+	 header("Location: myaccount.php");
+	 }
+}
+//saving others payment details
+if(isset($_POST['payo']))
+{
+	 $Total = $_POST['amount'];
+
+	 if($Total > $balance)
+	 {
+	 	header("Location: message.php");
+	 }
+	 else
+	 {
+
+	 $Others = new OthersFee();
+	 $OID = Util::getGUID();
+	 $Others->setID($OID);
+     $Others->setUniversityID($UID);
+     $Others->setBatch($Batch);
+     $Others->setName($name);
+     $Others->setEmail($email);
+     $Others->setDate($date);
+     $Others->setDiscipline($Discipline);
+     $Others->setDescription($_DB->secureInput($_POST['desc']));
+	 $Others->setTotal($Total);
+	 $_PaymentBAO->setOthersPayment($Others);
+	 //for setting payment type
+	 $Type = "Others Fee";
+	 $PaymentType = new PaymentType();
+	 $PaymentType->setID(Util::getGUID());
+	 $PaymentType->setPID($OID);
 	 $PaymentType->setUniversityID($UID);
 	 $PaymentType->setType($Type);
 	 $PaymentType->setDate($date);

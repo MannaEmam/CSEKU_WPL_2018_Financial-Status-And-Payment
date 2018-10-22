@@ -110,7 +110,6 @@ Class PaymentBAO{
 
 	//hall fee
 	public function setHallPayment($HallFee){
-		var_dump($HallFee);
 				$Result = new Result();	
 		$Result = $this->_PaymentDAO->setHallPayment($HallFee);
 		
@@ -137,6 +136,37 @@ Class PaymentBAO{
 		
 		if(!$Result->getIsSuccess())
 			$Result->setResultObject("Database failure in PaymentDAO.getHallFeeBySid()");		
+
+		return $Result;
+	}
+	//Others fee
+	public function setOthersPayment($Others){
+				$Result = new Result();	
+		$Result = $this->_PaymentDAO->setOthersPayment($Others);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.setOthersPayment()");		
+
+		return $Result;
+	}
+	//getting others fee details by payment id
+	public function getOthersFee($Others){
+
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getOthersFee($Others);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getOthersFee()");		
+
+		return $Result;
+	}
+		//get others fee details by student id
+	public function getOthersFeeBySid($Others){
+		$Result = new Result();	
+		$Result = $this->_PaymentDAO->getOthersFeeBySid($Others);
+		
+		if(!$Result->getIsSuccess())
+			$Result->setResultObject("Database failure in PaymentDAO.getOthersFeeBySid()");		
 
 		return $Result;
 	}

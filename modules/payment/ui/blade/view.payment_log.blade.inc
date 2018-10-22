@@ -5,6 +5,7 @@ $_PaymentBAO = new PaymentBAO();
 $_DB = DBUtil::getInstance();
 $result = NULL;
 $result1 = NULL;
+$result2 = NULL;
 if(isset($_POST['search']))
 {
 
@@ -25,6 +26,16 @@ if(isset($_POST['search']))
 		$HallFee = new HallFee();
 		$HallFee->setUniversityID($SID);
 		$result1 = $_PaymentBAO->getHallFeeBySid($HallFee)->getResultObject();
+	}
+
+
+		else if(($_POST['selectedField'] == "Others Fee"))
+	{
+		//student id
+		$SID = $_POST['sid'];
+		$OthersFee = new OthersFee();
+		$OthersFee->setUniversityID($SID);
+		$result2 = $_PaymentBAO->getOthersFeeBySid($OthersFee)->getResultObject();
 	}
 }
 ?>

@@ -18,7 +18,7 @@ include_once 'blade/view.payment_log.blade.inc';
 				<select name="selectedField" class="form-control" id="selectedField" required>
 					<option value="Registration Fee">Registration Fee</option>
 					<option value="Hall Fee">Hall Fee</option>
-					<option value="Others">Others</option>
+					<option value="Others Fee">Others Fee</option>
 				</select>	
 		</div>
 	</div>
@@ -381,5 +381,33 @@ if($result1){
 <br><br><br><br>
 <?php
 }//foreach loop
-}//else if
+}//if
+if($result2){
+	foreach ($result2 as $getOthersFee) { ?>
+		<h1 class="hh1"> KHULNA UNIVERSITY </h1>
+<h2 class="hh1" id="hh2"> Students Others Fee Receipt </h2>
+<div class="aa">
+Name: <?php echo $getOthersFee->getName(); ?>			<br>
+Student id: <?php echo$getOthersFee->getUniversityID(); ?><br>
+Discipline: <?php echo $getOthersFee->getDiscipline(); ?><br>
+Date: <?php echo $getOthersFee->getDate(); ?><br>
+</div>    
+<table width="650" class="t1">
+	  <tr>
+    <th>Description</th>
+    <th >Taka</th>
+  </tr>
+  		<td height="100">
+	<?php echo $getOthersFee->getDescription();?><br>
+		</td>
+		<br>
+		<td height="100">
+			<?php echo $getOthersFee->getTotal();?><br>
+		</td>
+</table>
+<br><br><br><br>
+<?php
+}//if closed
+}//foreach loop
 ?>
+

@@ -37,8 +37,14 @@ Balance: <?php echo $getAccount->getAmount(); ?> <br> <br>
     { //2nd if condition started here     ?>
  
       <td><a href="hall_feedetails.php?type=<?php echo($Type); ?>&pid=<?php echo($PID); ?>">View Details</a></td>
-  </tr>
+ 
 <?php 
 }//2nd if closed
+  if($Type == "Others Fee")
+  {//3rd if started here ?>
+    <td><a href="others_feedetails.php?type=<?php echo($Type); ?>&pid=<?php echo($PID); ?>">View Details</a></td>
+  </tr>
+  <?php
+}//3rd if closed here
 }//foreach loop closed?>
 </table>

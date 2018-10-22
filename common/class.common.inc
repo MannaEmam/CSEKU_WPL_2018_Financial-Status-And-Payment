@@ -370,13 +370,14 @@ class PageUtil{
     //Payment
     public static $PAYMENT_REGISTRATION='registration_fee.php';
     public static $PAYMENT_HALL='hall_fee.php';
-    //public static $PAYMENT_OTHER='others_fee.php';    
+    public static $PAYMENT_OTHERS='others_fee.php';    
     public static $PAYMENT_RECHARGE='recharge.php';
     public static $PAYMENT_MESSAGE='message.php';     
     public static $PAYMENT_MYACCOUNT='myaccount.php';
     public static $PAYMENT_REGISTRATION_DETAILS='registration_feedetails.php';
     public static $PAYMENT_LOG='payment_log.php';
     public static $PAYMENT_HALL_DETAILS='hall_feedetails.php';
+    public static $PAYMENT_OTHERS_DETAILS='others_feedetails.php';
 }
 
 
@@ -519,13 +520,14 @@ class RouteUtil{
          //Payment
          self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION]  =   "modules/payment/ui/view.registration_fee.inc";
          self::$s_Routes[PageUtil::$PAYMENT_HALL]  =   "modules/payment/ui/view.hall_fee.inc";
-         //self::$s_Routes[PageUtil::$PAYMENT_OTHERS]  =   "modules/payment/ui/view.others_fees.inc";
+         self::$s_Routes[PageUtil::$PAYMENT_OTHERS]  =   "modules/payment/ui/view.others_fee.inc";
         self::$s_Routes[PageUtil::$PAYMENT_RECHARGE]  =   "modules/payment/ui/view.recharge.inc";
         self::$s_Routes[PageUtil::$PAYMENT_MESSAGE]  =   "modules/payment/ui/view.message.inc";
         self::$s_Routes[PageUtil::$PAYMENT_MYACCOUNT]  =   "modules/payment/ui/view.myaccount.inc";
         self::$s_Routes[PageUtil::$PAYMENT_REGISTRATION_DETAILS]  =   "modules/payment/ui/view.registration_feedetails.inc";
         self::$s_Routes[PageUtil::$PAYMENT_LOG]  =   "modules/payment/ui/view.payment_log.inc";
         self::$s_Routes[PageUtil::$PAYMENT_HALL_DETAILS]  =   "modules/payment/ui/view.hall_feedetails.inc";
+        self::$s_Routes[PageUtil::$PAYMENT_OTHERS_DETAILS]  =   "modules/payment/ui/view.others_feedetails.inc";
     }
 
     public static function getInstance() {
