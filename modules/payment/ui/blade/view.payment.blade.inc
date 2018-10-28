@@ -79,12 +79,14 @@ if(isset($_POST['payr']))
 	 $_PaymentBAO->setRegistrationPayment($RegistrationFee);
 	 //for setting payment type
 	 $Type = "Registration Fee";
+	 		date_default_timezone_set("Asia/Dhaka");
+		$Date = date('Y/m/d h:i:s', time());
 	 $PaymentType = new PaymentType();
 	 $PaymentType->setID(Util::getGUID());
 	 $PaymentType->setPID($RID);
 	 $PaymentType->setUniversityID($UID);
 	 $PaymentType->setType($Type);
-	 $PaymentType->setDate($date);
+	 $PaymentType->setDate($Date);
 	 $_PaymentBAO->setPaymentType($PaymentType);
 	 header("Location: myaccount.php");	
 	 }
@@ -130,12 +132,14 @@ if(isset($_POST['payh']))
 	 $_PaymentBAO->setHallPayment($HallFee);
 	 //for setting payment type
 	 $Type = "Hall Fee";
+	 		date_default_timezone_set("Asia/Dhaka");
+		$Date = date('Y/m/d h:i:s', time());
 	 $PaymentType = new PaymentType();
 	 $PaymentType->setID(Util::getGUID());
 	 $PaymentType->setPID($HID);
 	 $PaymentType->setUniversityID($UID);
 	 $PaymentType->setType($Type);
-	 $PaymentType->setDate($date);
+	 $PaymentType->setDate($Date);
 	 $_PaymentBAO->setPaymentType($PaymentType);
 	 header("Location: myaccount.php");
 	 }
@@ -166,12 +170,14 @@ if(isset($_POST['payo']))
 	 $_PaymentBAO->setOthersPayment($Others);
 	 //for setting payment type
 	 $Type = "Others Fee";
+	 	 		date_default_timezone_set("Asia/Dhaka");
+		$Date = date('Y/m/d h:i:s', time());
 	 $PaymentType = new PaymentType();
 	 $PaymentType->setID(Util::getGUID());
 	 $PaymentType->setPID($OID);
 	 $PaymentType->setUniversityID($UID);
 	 $PaymentType->setType($Type);
-	 $PaymentType->setDate($date);
+	 $PaymentType->setDate($Date);
 	 $_PaymentBAO->setPaymentType($PaymentType);
 	 header("Location: myaccount.php");
 	 }

@@ -69,9 +69,11 @@ include_once COMMON.'class.common.inc';
 		}
 	?>
 <form method="post" class="form-horizontal">
+	<!--
 <div>
 <label style="color:red; background-color: rgba(0,0,0,1); float: right; font-size: 20px; margin-left: auto;margin-right: 0">Total Credit: <?php echo $UserList->getTotalCredit(); ?> </label></div>
 <div>
+-->
 <label  style="color:red; background-color: rgba(0,0,0,1); float: left; font-size: 20px; margin-left: auto;margin-right: 0">Total to Pay: <?php echo $UserList->getTotalToPay(); ?></label></div><br><br>
 
 	<input type="submit" name="commit" value="Commit" onclick="return confirm('sure to purchase?'); " style="color:green;font-weight: bolder; background-color: rgba(0,0,0,1); float: right; font-size: 22px" >
@@ -128,7 +130,9 @@ for($i = 0; $i < sizeof($UserList); $i++) {
 						<input type="hidden" name="productID" id="productID" value="<?php echo $User->getID(); ?>">
 						<p style="color: yellow;font-weight: bold;"><?php echo $User->getName(); ?></p>		
 						<p style="color: #fff;font-weight: bold;">Price: <?php echo $User->getPrice(); ?></p>
+				<!--
 						<p style="color: #fff;font-weight: bold;">Credit: <?php echo $User->getOfferedCredit(); ?></p>
+					-->
 						<input type="submit" name="deleteFromCart" value="Delete From Cart">
 
 

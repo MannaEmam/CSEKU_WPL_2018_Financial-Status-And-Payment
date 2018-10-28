@@ -120,10 +120,13 @@ include_once 'blade/view.products.blade.inc';
 				</div>
 
 				<div class="form-group">
-					<label class="control-label col-sm-4" for="txtCredit">Credit : </label>
+
 					<div class="col-sm-6">
+											<!--
+					<label class="control-label col-sm-4" for="txtCredit">
 						<input type="text" class="form-control" id="txtCredit"  name="txtCredit" placeholder="Enter Price of the Product"  value="<?php 
-					if(isset($_POST['editProducts'])) echo $getROW->getOfferedCredit();  ?>"/>
+					//if(isset($_POST['editProducts'])) echo $getROW->getOfferedCredit();  ?>"/>
+				-->
 					</div>
 				</div>
 				<div class="form-group">

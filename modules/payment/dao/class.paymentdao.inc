@@ -138,7 +138,7 @@ Class PaymentDAO{
 		else
 		{
 			$amount = $Amount + $row['Amount'];
-			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount' WHERE Email='$Email'";
+			$SQL3 = "UPDATE pms_recharge SET Amount ='$amount', `Date` = '$Date' WHERE Email='$Email'";
 			$SQL3 = $this->_DB->doQuery($SQL3);
 		}
 

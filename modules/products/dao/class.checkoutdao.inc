@@ -93,15 +93,32 @@ Class CheckoutDAO{
 	public function updateBalanceCredit($TotalToPay){
 
 		$ID=$_SESSION["globalUser"]->getID ();
+		$Email = $ID;
 		$Amount=$TotalToPay->getTotalToPay();
 		$Credit=$TotalToPay->getTotalCredit();
-		$SQL = "UPDATE tbl_user_details SET Balance = Balance-'$Amount' , Credit=Credit+'$Credit' where ID ='".$ID."'";
-	
-		$SQL = $this->_DB->doQuery($SQL);
+		$SQL2 = "SELECT Amount FROM pms_recharge WHERE Email='$Email'";
+		$SQL2 = $this->_DB->doQuery($SQL2);
+		$row = $this->_DB->getTopRow();
+		$amount = $row['Amount'] - $Amount;
 
+		$SQL3 = "UPDATE pms_recharge SET Amount ='$amount' WHERE Email='$Email'";
+		$SQL3 = $this->_DB->doQuery($SQL3);
+		//getting user id using email
+		$SQL4 = "SELECT UniversityID FROM ums_user WHERE Email='$Email'";
+		$SQL4 =  $this->_DB->doQuery($SQL4);
+		$row1 = $this->_DB->getTopRow();
+		$UID = $row1['UniversityID'];
+		date_default_timezone_set("Asia/Dhaka");
+		$Date = date('Y/m/d h:i:s', time());
+		var_dump($Date);
+		$Type = "Product";
+		$IID = Util::getGUID();
+		$PID = Util::getGUID();
+		$SQL = "INSERT pms_payment_type VALUES('$IID', '$PID' ,'$UID','$Type','$Date')";
+		$SQL = $this->_DB->doQuery($SQL);
 	 	$Result = new Result();
 		$Result->setIsSuccess(1);
-		$Result->setResultObject($SQL);
+		$Result->setResultObject($SQL3);
 
 		return $Result;
 

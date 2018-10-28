@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 19, 2018 at 11:31 PM
+-- Generation Time: Oct 28, 2018 at 07:27 PM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `pms_recharge`;
 CREATE TABLE IF NOT EXISTS `pms_recharge` (
   `ID` varchar(40) CHARACTER SET utf8 NOT NULL,
-  `Date` date NOT NULL,
+  `Date` datetime NOT NULL,
   `Email` text CHARACTER SET utf8 NOT NULL,
   `Amount` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `pms_recharge` (
 --
 
 INSERT INTO `pms_recharge` (`ID`, `Date`, `Email`, `Amount`) VALUES
-('{46D252E8-7694-4C15-AB10-99D14CEE73B1}', '2018-10-17', 'mannaemam@gmail.com', 75),
-('{94CEC983-C608-408E-86B5-EE99012CE047}', '2018-10-19', 'aswad@gmail.com', 9);
+('{46D252E8-7694-4C15-AB10-99D14CEE73B1}', '2018-10-17 00:00:00', 'mannaemam@gmail.com', 2170),
+('{94CEC983-C608-408E-86B5-EE99012CE047}', '2018-10-29 01:20:46', 'aswad@gmail.com', 1110);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

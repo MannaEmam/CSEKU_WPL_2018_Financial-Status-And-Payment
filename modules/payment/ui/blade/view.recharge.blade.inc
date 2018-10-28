@@ -5,7 +5,7 @@ $_PaymentBAO = new PaymentBAO();
 $_DB = DBUtil::getInstance();
 $getRow =$_PaymentBAO->getRechargeLog()->getResultObject();
 date_default_timezone_set("Asia/Dhaka");
-$date = date('Y/m/d');
+$date = date('Y/m/d h:i:s', time());
 /* saving the recharge*/
 if(isset($_POST['recharge']))
 {

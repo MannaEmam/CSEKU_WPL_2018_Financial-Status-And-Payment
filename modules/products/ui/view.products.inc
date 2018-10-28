@@ -183,7 +183,8 @@ for($i = 0; $i < sizeof($UserList); $i++) {
 
 			</p>
 			<p style="color: #fff;font-weight: bold;">Price: <?php echo $User->getPrice(); ?></p>
-			<p style="color: #fff;font-weight: bold;">Credit: <?php echo $User->getOfferedCredit(); ?></p>
+			<!--<p style="color: #fff;font-weight: bold;">Credit: <?php echo $User->getOfferedCredit(); ?></p>
+			-->
 			<input type="submit" name="addToCart" value="Add to Cart">
 
 		</div>
