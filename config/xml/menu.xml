@@ -1015,4 +1015,65 @@
 			<Permission>PAYMENT_R</Permission>
 		</Permissions>
 		</Menu>
+
+
+		<!-- product -->
+	<Menu>
+		<ParentMenu></ParentMenu>
+		<Title>Product</Title>
+		<Permissions>
+			<Permission>PRODUCT_C</Permission>
+			<Permission>PRODUCT_R</Permission>
+			<Permission>PRODUCT_U</Permission>
+			<Permission>PRODUCT_D</Permission>									
+		</Permissions>			
+	</Menu>
+		<Menu>
+			<ParentMenu>Product</ParentMenu>
+			<Title>Product Related</Title>
+			<Permissions>
+			<Permission>PRODUCT_C</Permission>
+			<Permission>PRODUCT_R</Permission>
+			<Permission>PRODUCT_U</Permission>
+			<Permission>PRODUCT_D</Permission>									
+		</Permissions>																
+		</Menu>	
+		
+
+			<Menu>
+				<ParentMenu>Product Related</ParentMenu>
+				<Title>Create Product</Title>
+				<Link>create_product.php</Link>
+		<Permissions>
+			<Permission>PRODUCT_C</Permission>
+			<Permission>PRODUCT_R</Permission>
+			<Permission>PRODUCT_U</Permission>
+			<Permission>PRODUCT_D</Permission>									
+		</Permissions>			
+			</Menu>
+
+			<Menu>
+				<ParentMenu>Product Related</ParentMenu>
+				<Title>Shop Here</Title>
+				<Link>products.php</Link>
+		<Permissions>
+			<Permission>PRODUCT_C</Permission>
+			<Permission>PRODUCT_R</Permission>
+			<Permission>PRODUCT_U</Permission>
+			<Permission>PRODUCT_D</Permission>									
+		</Permissions>			
+			</Menu>
+
+			<Menu>
+				<ParentMenu>Product Related</ParentMenu>
+				<Title>Check Out</Title>
+				<Link>checkout.php</Link>
+		<Permissions>
+			<Permission>PRODUCT_C</Permission>
+			<Permission>PRODUCT_R</Permission>
+			<Permission>PRODUCT_U</Permission>
+			<Permission>PRODUCT_D</Permission>									
+		</Permissions>			
+			</Menu>
+			
 </Menus>

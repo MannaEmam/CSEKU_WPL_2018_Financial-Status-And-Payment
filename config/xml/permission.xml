@@ -837,4 +837,30 @@
 		<name>PAYMENT_RECHARGE_D</name>
 		<category>PAYMENT_RECHARGE</category>
 	</permission>
+
+			<!-- PRODUCT Category -->
+	<permission>
+		<id>PRODUCT_C</id>
+		<name>PRODUCT_C</name>
+		<category>PRODUCT</category>
+	</permission>
+
+	<permission>
+		<id>PRODUCT_R</id>
+		<name>PRODUCT_R</name>
+		<category>PRODUCT</category>
+	</permission>
+
+	<permission>
+		<id>PRODUCT_U</id>
+		<name>PRODUCT_U</name>
+		<category>PRODUCT</category>
+	</permission>
+
+	<permission>
+		<id>PRODUCT_D</id>
+		<name>PRODUCT_D</name>
+		<category>PRODUCT</category>
+	</permission>
+
 </permissions>

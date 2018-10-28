@@ -271,6 +271,11 @@ class PermissionUtil{
     public static $PAYMENT_RECHARGE_U='PAYMENT_RECHARGE_U';
     public static $PAYMENT_RECHARGE_D='PAYMENT_RECHARGE_D';
 
+    public static $PRODUCT_C='PRODUCT_C';
+    public static $PRODUCT_R='PRODUCT_R';
+    public static $PRODUCT_U='PRODUCT_U';
+    public static $PRODUCT_D='PRODUCT_D';
+
 
 }
 
@@ -378,6 +383,10 @@ class PageUtil{
     public static $PAYMENT_LOG='payment_log.php';
     public static $PAYMENT_HALL_DETAILS='hall_feedetails.php';
     public static $PAYMENT_OTHERS_DETAILS='others_feedetails.php';
+    //
+    public static $PRODUCT_CREATE='create_product.php';
+    public static $PRODUCTS='products.php';
+    public static $CHECKOUT='checkout.php';
 }
 
 
@@ -528,6 +537,10 @@ class RouteUtil{
         self::$s_Routes[PageUtil::$PAYMENT_LOG]  =   "modules/payment/ui/view.payment_log.inc";
         self::$s_Routes[PageUtil::$PAYMENT_HALL_DETAILS]  =   "modules/payment/ui/view.hall_feedetails.inc";
         self::$s_Routes[PageUtil::$PAYMENT_OTHERS_DETAILS]  =   "modules/payment/ui/view.others_feedetails.inc";
+        //product
+        self::$s_Routes[PageUtil::$PRODUCT_CREATE]  =   "modules/products/ui/view.create_product.inc";
+        self::$s_Routes[PageUtil::$PRODUCTS]  =   "modules/products/ui/view.products.inc";
+         self::$s_Routes[PageUtil::$CHECKOUT]  =   "modules/products/ui/view.checkout.inc";
     }
 
     public static function getInstance() {
