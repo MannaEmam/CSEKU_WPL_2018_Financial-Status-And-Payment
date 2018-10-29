@@ -93,6 +93,4 @@ Class CheckoutBAO{
 	}
 
 }
-
-echo '<br> log:: exit the class.Checkoutbao.php';
 ?>

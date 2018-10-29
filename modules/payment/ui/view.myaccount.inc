@@ -10,7 +10,7 @@ include_once 'blade/view.myaccount.blade.inc';
 Name: <?php echo $getROW->getFirstName(); ?>			<br>
 Student id: <?php echo $getROW->getUniversityID(); ?><br>
 Discipline: <?php echo $getROW->getDiscipline(); ?><br>
-Balance: <?php echo $getAccount->getAmount(); ?> <br> <br>
+<b>Balance: <?php echo $getAccount->getAmount(); ?> </b> <br> <br>
 </div>
 </form>
 <table class="table">

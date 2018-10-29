@@ -64,6 +64,5 @@ Class ProductsBAO{
 	
 }
 
-echo '<br> log:: exit the class.Productsbao.php';
 
 ?>

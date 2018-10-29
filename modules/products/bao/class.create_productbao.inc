@@ -92,6 +92,4 @@ Class Create_ProductBAO{
 	
 }
 
-echo '<br> log:: exit the class.create_productbao.php';
-
 ?>

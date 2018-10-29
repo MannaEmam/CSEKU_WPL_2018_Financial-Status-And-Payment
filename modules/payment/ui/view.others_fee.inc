@@ -11,7 +11,7 @@ include_once 'blade/view.payment.blade.inc';
 Name: <?php echo $getROW->getFirstName(); ?>			<br>
 Student id: <?php echo $getROW->getUniversityID(); ?><br>
 Discipline: <?php echo $getROW->getDiscipline(); ?><br>
-Account Balance: <?php echo $balance; ?><br>
+<b>Account Balance: <?php echo $balance; ?> </b><br>
 </div>    
 <form class="f1" method="post">
 <table width="650" class="t1">
