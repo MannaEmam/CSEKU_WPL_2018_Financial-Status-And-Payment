@@ -82,3 +82,8 @@ Survey:
 milon	120203
 mahin	110217
 noman	120209
+Payment:
+---------------
+manna 160204
+aswad 160216
+mesu 160213
